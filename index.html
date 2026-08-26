@@ -3,51 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>La Casereccia | Gestionale</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ==================================================
-     LOGIN GENERALE
-================================================== -->
-
+<!-- LOGIN -->
 <section id="loginPage" class="page login-page">
 
     <div class="login-container">
 
         <div class="brand">
             <div class="brand-icon">🍝</div>
-
             <h1>La Casereccia</h1>
-
             <span>PASTA FRESCA</span>
         </div>
 
         <div class="login-box">
 
             <h2>Benvenuto</h2>
-
             <p>Accedi al gestionale aziendale</p>
 
             <label>Nome</label>
-
-            <input
-                id="username"
-                type="text"
-                placeholder="Inserisci il nome"
-            >
+            <input id="username" type="text" placeholder="Nome">
 
             <label>Password</label>
-
-            <input
-                id="password"
-                type="password"
-                placeholder="Inserisci la password"
-            >
+            <input id="password" type="password" placeholder="Password">
 
             <button class="primary-button" onclick="loginGenerale()">
                 ACCEDI
@@ -56,55 +38,40 @@
             <div id="loginError" class="error"></div>
 
         </div>
-
     </div>
 
 </section>
 
 
-<!-- ==================================================
-     SCELTA SEDE
-================================================== -->
-
+<!-- SCELTA SEDE -->
 <section id="sediPage" class="page" style="display:none;">
 
     <div class="selection-container">
 
         <div class="page-brand">
-
             <div class="small-logo">🍝</div>
 
             <div>
                 <h1>La Casereccia</h1>
                 <span>Gestionale Aziendale</span>
             </div>
-
         </div>
 
         <div class="selection-title">
-
             <h2>Seleziona la sede</h2>
-
-            <p>Scegli il punto che vuoi gestire</p>
-
+            <p>Scegli il punto da gestire</p>
         </div>
-
 
         <div class="sede-grid">
 
-            <button
-                class="sede-card centrale"
-                onclick="richiediAccessoPrincipale()"
-            >
+            <button class="sede-card centrale"
+                    onclick="richiediAccessoPrincipale()">
 
                 <div class="sede-card-icon">🏢</div>
 
                 <div class="sede-card-content">
-
                     <h3>Sede Principale</h3>
-
                     <p>Controllo e gestione completa</p>
-
                 </div>
 
                 <span class="arrow">→</span>
@@ -112,19 +79,14 @@
             </button>
 
 
-            <button
-                class="sede-card"
-                onclick="apriSede('senigallia')"
-            >
+            <button class="sede-card"
+                    onclick="apriSede('senigallia')">
 
                 <div class="sede-card-icon">📍</div>
 
                 <div class="sede-card-content">
-
                     <h3>Senigallia</h3>
-
                     <p>Gestione punto vendita</p>
-
                 </div>
 
                 <span class="arrow">→</span>
@@ -132,19 +94,14 @@
             </button>
 
 
-            <button
-                class="sede-card"
-                onclick="apriSede('marotta')"
-            >
+            <button class="sede-card"
+                    onclick="apriSede('marotta')">
 
                 <div class="sede-card-icon">📍</div>
 
                 <div class="sede-card-content">
-
                     <h3>Marotta</h3>
-
                     <p>Gestione punto vendita</p>
-
                 </div>
 
                 <span class="arrow">→</span>
@@ -152,84 +109,58 @@
             </button>
 
         </div>
-
     </div>
 
 </section>
 
 
-<!-- ==================================================
-     ACCESSO SEDE PRINCIPALE
-================================================== -->
-
-<section
-    id="loginPrincipalePage"
-    class="page login-page"
-    style="display:none;"
->
+<!-- LOGIN PRINCIPALE -->
+<section id="loginPrincipalePage"
+         class="page login-page"
+         style="display:none;">
 
     <div class="login-container">
 
         <div class="brand">
-
             <div class="brand-icon">🏢</div>
-
             <h1>Sede Principale</h1>
-
             <span>ACCESSO RISERVATO</span>
-
         </div>
-
 
         <div class="login-box">
 
             <h2>Accesso riservato</h2>
-
-            <p>Inserisci le credenziali della sede principale</p>
+            <p>Gestione completa azienda</p>
 
             <label>Nome</label>
-
-            <input
-                id="usernamePrincipale"
-                type="text"
-                placeholder="Inserisci il nome"
-            >
+            <input id="usernamePrincipale"
+                   type="text"
+                   placeholder="Nome">
 
             <label>Password</label>
+            <input id="passwordPrincipale"
+                   type="password"
+                   placeholder="Password">
 
-            <input
-                id="passwordPrincipale"
-                type="password"
-                placeholder="Inserisci la password"
-            >
-
-            <button
-                class="primary-button"
-                onclick="loginPrincipale()"
-            >
+            <button class="primary-button"
+                    onclick="loginPrincipale()">
                 ACCEDI
             </button>
 
-            <button
-                class="secondary-button"
-                onclick="tornaAlleSedi()"
-            >
+            <button class="secondary-button"
+                    onclick="tornaAlleSedi()">
                 ← Torna alla scelta sede
             </button>
 
             <div id="principaleError" class="error"></div>
 
         </div>
-
     </div>
 
 </section>
 
 
-<!-- ==================================================
-     DASHBOARD
-================================================== -->
-
+<!-- DASHBOARD -->
 <section id="dashboardPage" style="display:none;">
 
     <header class="topbar">
@@ -239,22 +170,14 @@
             <div class="topbar-logo">🍝</div>
 
             <div>
-
                 <strong>La Casereccia</strong>
-
-                <span id="sedeNome">
-                    Gestionale
-                </span>
-
+                <span id="sedeNome">Gestionale</span>
             </div>
 
         </div>
 
-
-        <button
-            class="back-button"
-            onclick="tornaAlleSedi()"
-        >
+        <button class="back-button"
+                onclick="tornaAlleSedi()">
             ← Cambia sede
         </button>
 
@@ -286,24 +209,14 @@
 
         <div class="dashboard-grid">
 
-
-            <!-- MAGAZZINO -->
-
-            <button
-                class="module-card"
-                onclick="apriModulo('magazzino')"
-            >
+            <button class="module-card"
+                    onclick="apriModulo('magazzino')">
 
                 <div class="module-icon">📦</div>
 
                 <div class="module-text">
-
                     <h3>Magazzino</h3>
-
-                    <p id="magazzinoText">
-                        Gestione delle scorte
-                    </p>
-
+                    <p>Gestione delle scorte</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -311,23 +224,14 @@
             </button>
 
 
-            <!-- ORDINI -->
-
-            <button
-                class="module-card"
-                onclick="apriModulo('ordini')"
-            >
+            <button class="module-card"
+                    onclick="apriModulo('ordini')">
 
                 <div class="module-icon">🧾</div>
 
                 <div class="module-text">
-
                     <h3>Ordini</h3>
-
-                    <p id="ordiniText">
-                        Gestione degli ordini
-                    </p>
-
+                    <p>Gestione degli ordini</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -335,23 +239,14 @@
             </button>
 
 
-            <!-- CATALOGO -->
-
-            <button
-                class="module-card"
-                onclick="apriModulo('catalogo')"
-            >
+            <button class="module-card"
+                    onclick="apriModulo('catalogo')">
 
                 <div class="module-icon">🍝</div>
 
                 <div class="module-text">
-
                     <h3>Catalogo prodotti</h3>
-
-                    <p>
-                        Anagrafica prodotti aziendale
-                    </p>
-
+                    <p>Gestione prodotti aziendali</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -359,23 +254,14 @@
             </button>
 
 
-            <!-- PRODUZIONE -->
-
-            <button
-                class="module-card"
-                onclick="apriModulo('produzione')"
-            >
+            <button class="module-card"
+                    onclick="apriModulo('produzione')">
 
                 <div class="module-icon">🏭</div>
 
                 <div class="module-text">
-
                     <h3>Produzione</h3>
-
-                    <p>
-                        Produzione e lotti
-                    </p>
-
+                    <p>Produzione e lotti</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -383,23 +269,14 @@
             </button>
 
 
-            <!-- SCADENZE -->
-
-            <button
-                class="module-card warning"
-                onclick="apriModulo('scadenze')"
-            >
+            <button class="module-card warning"
+                    onclick="apriModulo('scadenze')">
 
                 <div class="module-icon">🟠</div>
 
                 <div class="module-text">
-
                     <h3>Scadenze</h3>
-
-                    <p id="scadenzeText">
-                        Controllo delle scadenze
-                    </p>
-
+                    <p>Controllo automatico</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -407,23 +284,14 @@
             </button>
 
 
-            <!-- TEMPERATURE -->
-
-            <button
-                class="module-card"
-                onclick="apriModulo('temperature')"
-            >
+            <button class="module-card"
+                    onclick="apriModulo('temperature')">
 
                 <div class="module-icon">🌡️</div>
 
                 <div class="module-text">
-
                     <h3>Temperature</h3>
-
-                    <p id="temperatureText">
-                        Registrazione temperature
-                    </p>
-
+                    <p>Controllo temperature</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -431,23 +299,14 @@
             </button>
 
 
-            <!-- PULIZIE -->
-
-            <button
-                class="module-card"
-                onclick="apriModulo('pulizie')"
-            >
+            <button class="module-card"
+                    onclick="apriModulo('pulizie')">
 
                 <div class="module-icon">🧹</div>
 
                 <div class="module-text">
-
                     <h3>Pulizie</h3>
-
-                    <p id="pulizieText">
-                        Controllo pulizie
-                    </p>
-
+                    <p>Controllo pulizie</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -455,23 +314,14 @@
             </button>
 
 
-            <!-- STORICO -->
-
-            <button
-                class="module-card"
-                onclick="apriModulo('storico')"
-            >
+            <button class="module-card"
+                    onclick="apriModulo('storico')">
 
                 <div class="module-icon">📋</div>
 
                 <div class="module-text">
-
                     <h3>Storico movimenti</h3>
-
-                    <p id="storicoText">
-                        Movimenti di magazzino
-                    </p>
-
+                    <p>Movimenti di magazzino</p>
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -485,11 +335,10 @@
 </section>
 
 
-<!-- ==================================================
-     MODULO TEMPORANEO
-================================================== -->
-
-<section id="modulePage" class="module-page" style="display:none;">
+<!-- MODULO -->
+<section id="modulePage"
+         class="module-page"
+         style="display:none;">
 
     <header class="topbar">
 
@@ -498,21 +347,14 @@
             <div class="topbar-logo">🍝</div>
 
             <div>
-
                 <strong>La Casereccia</strong>
-
-                <span id="moduleSede">
-                    Gestionale
-                </span>
-
+                <span id="moduleSede">Gestionale</span>
             </div>
 
         </div>
 
-        <button
-            class="back-button"
-            onclick="tornaDashboard()"
-        >
+        <button class="back-button"
+                onclick="tornaDashboard()">
             ← Torna al gestionale
         </button>
 
@@ -523,8 +365,9 @@
 
         <div class="module-header">
 
-            <div class="module-big-icon" id="moduleIcon">
-                📦
+            <div class="module-big-icon"
+                 id="moduleIcon">
+                🍝
             </div>
 
             <div>
@@ -546,7 +389,150 @@
         </div>
 
 
-        <div class="module-placeholder">
+        <!-- CATALOGO PRODOTTI -->
+
+        <div id="catalogoContent"
+             style="display:none;">
+
+            <div class="catalogo-toolbar">
+
+                <input
+                    id="cercaProdotto"
+                    type="text"
+                    placeholder="🔎 Cerca prodotto..."
+                    oninput="mostraProdotti()"
+                >
+
+                <button
+                    class="primary-button catalogo-button"
+                    onclick="mostraFormProdotto()"
+                >
+                    + NUOVO PRODOTTO
+                </button>
+
+            </div>
+
+
+            <div id="formProdotto"
+                 class="product-form"
+                 style="display:none;">
+
+                <h2>Nuovo prodotto</h2>
+
+                <label>Nome prodotto</label>
+
+                <input id="nomeProdotto"
+                       type="text"
+                       placeholder="Es. Cappelletti piccoli">
+
+
+                <label>Codice prodotto</label>
+
+                <input id="codiceProdotto"
+                       type="text"
+                       placeholder="Es. CAP001">
+
+
+                <label>Categoria</label>
+
+                <input id="categoriaProdotto"
+                       type="text"
+                       placeholder="Es. Pasta ripiena">
+
+
+                <label>Gestione prodotto</label>
+
+                <select id="gestioneProdotto">
+
+                    <option value="Fresco">
+                        Fresco
+                    </option>
+
+                    <option value="Scongelato">
+                        Scongelato
+                    </option>
+
+                    <option value="Fresco e Scongelato">
+                        Fresco e Scongelato
+                    </option>
+
+                </select>
+
+
+                <label>Durata</label>
+
+                <div class="input-row">
+
+                    <input id="durataProdotto"
+                           type="number"
+                           min="1"
+                           placeholder="Numero">
+
+                    <span>giorni</span>
+
+                </div>
+
+
+                <label>Peso confezione</label>
+
+                <input id="pesoProdotto"
+                       type="number"
+                       step="0.01"
+                       placeholder="Kg">
+
+
+                <label>Prezzo</label>
+
+                <input id="prezzoProdotto"
+                       type="number"
+                       step="0.01"
+                       placeholder="€">
+
+
+                <label>Ingredienti</label>
+
+                <textarea id="ingredientiProdotto"
+                          placeholder="Ingredienti"></textarea>
+
+
+                <label>Allergeni</label>
+
+                <textarea id="allergeniProdotto"
+                          placeholder="Allergeni"></textarea>
+
+
+                <div class="form-actions">
+
+                    <button
+                        class="primary-button"
+                        onclick="salvaProdotto()"
+                    >
+                        SALVA PRODOTTO
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        onclick="nascondiFormProdotto()"
+                    >
+                        ANNULLA
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="listaProdotti"
+                 class="product-list">
+            </div>
+
+        </div>
+
+
+        <!-- MODULI NON ANCORA COSTRUITI -->
+
+        <div id="genericModule"
+             class="module-placeholder">
 
             <div class="placeholder-icon">
                 ⚙️
@@ -568,14 +554,18 @@
 <script>
 
 /* ==================================================
-   DATI
+   VARIABILI
 ================================================== */
 
 let sedeAttuale = "";
 
+let prodotti = JSON.parse(
+    localStorage.getItem("prodottiCasereccia") || "[]"
+);
+
 
 /* ==================================================
-   LOGIN GENERALE
+   LOGIN
 ================================================== */
 
 function loginGenerale() {
@@ -586,21 +576,19 @@ function loginGenerale() {
     const password =
         document.getElementById("password").value.trim();
 
-    const error =
-        document.getElementById("loginError");
-
-
     if (username === "pasta" && password === "pasta") {
 
-        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("loginPage").style.display =
+            "none";
 
-        document.getElementById("sediPage").style.display = "flex";
+        document.getElementById("sediPage").style.display =
+            "flex";
 
-        error.textContent = "";
+        document.getElementById("loginError").textContent = "";
 
     } else {
 
-        error.textContent =
+        document.getElementById("loginError").textContent =
             "Nome o password non corretti.";
 
     }
@@ -609,14 +597,16 @@ function loginGenerale() {
 
 
 /* ==================================================
-   LOGIN SEDE PRINCIPALE
+   LOGIN PRINCIPALE
 ================================================== */
 
 function richiediAccessoPrincipale() {
 
-    document.getElementById("sediPage").style.display = "none";
+    document.getElementById("sediPage").style.display =
+        "none";
 
-    document.getElementById("loginPrincipalePage").style.display = "flex";
+    document.getElementById("loginPrincipalePage").style.display =
+        "flex";
 
 }
 
@@ -629,19 +619,16 @@ function loginPrincipale() {
     const password =
         document.getElementById("passwordPrincipale").value.trim();
 
-    const error =
-        document.getElementById("principaleError");
-
-
     if (username === "pane" && password === "pane") {
 
-        error.textContent = "";
+        document.getElementById("principaleError").textContent =
+            "";
 
         apriSede("principale");
 
     } else {
 
-        error.textContent =
+        document.getElementById("principaleError").textContent =
             "Nome o password non corretti.";
 
     }
@@ -650,28 +637,31 @@ function loginPrincipale() {
 
 
 /* ==================================================
-   APERTURA SEDE
+   SEDI
 ================================================== */
 
 function apriSede(sede) {
 
     sedeAttuale = sede;
 
-    document.getElementById("sediPage").style.display = "none";
+    document.getElementById("sediPage").style.display =
+        "none";
 
-    document.getElementById("loginPrincipalePage").style.display = "none";
+    document.getElementById("loginPrincipalePage").style.display =
+        "none";
 
-    document.getElementById("dashboardPage").style.display = "block";
+    document.getElementById("dashboardPage").style.display =
+        "block";
 
-
-    const sedeNome =
-        document.getElementById("sedeNome");
 
     const titolo =
         document.getElementById("dashboardTitolo");
 
     const descrizione =
         document.getElementById("dashboardDescrizione");
+
+    const sedeNome =
+        document.getElementById("sedeNome");
 
 
     if (sede === "principale") {
@@ -683,7 +673,7 @@ function apriSede(sede) {
             "Controllo generale azienda";
 
         descrizione.textContent =
-            "Gestione completa di produzione, magazzini e punti vendita";
+            "Gestione completa dell'azienda";
 
     }
 
@@ -697,7 +687,7 @@ function apriSede(sede) {
             "Gestionale Senigallia";
 
         descrizione.textContent =
-            "Gestione del punto vendita di Senigallia";
+            "Gestione del punto vendita";
 
     }
 
@@ -711,7 +701,7 @@ function apriSede(sede) {
             "Gestionale Marotta";
 
         descrizione.textContent =
-            "Gestione del punto vendita di Marotta";
+            "Gestione del punto vendita";
 
     }
 
@@ -719,73 +709,82 @@ function apriSede(sede) {
 
 
 /* ==================================================
-   APERTURA MODULI
+   MODULI
 ================================================== */
 
 function apriModulo(modulo) {
 
-    document.getElementById("dashboardPage").style.display = "none";
+    document.getElementById("dashboardPage").style.display =
+        "none";
 
-    document.getElementById("modulePage").style.display = "block";
+    document.getElementById("modulePage").style.display =
+        "block";
+
+
+    document.getElementById("catalogoContent").style.display =
+        "none";
+
+    document.getElementById("genericModule").style.display =
+        "block";
 
 
     const dati = {
 
-        magazzino: {
-            icon: "📦",
-            title: "Magazzino",
-            description: "Gestione prodotti e scorte",
-            text: "Qui gestiremo prodotti, quantità, fresco, scongelato, lotti e movimenti."
-        },
+        magazzino: [
+            "📦",
+            "Magazzino",
+            "Gestione prodotti e scorte",
+            "Qui gestiremo quantità, fresco, scongelato, lotti e movimenti."
+        ],
 
-        ordini: {
-            icon: "🧾",
-            title: "Ordini",
-            description: "Gestione degli ordini dei punti vendita",
-            text: "Qui arriveranno gli ordini di Senigallia e Marotta e verranno gestiti dalla sede principale."
-        },
+        ordini: [
+            "🧾",
+            "Ordini",
+            "Gestione degli ordini",
+            "Qui arriveranno gli ordini di Senigallia e Marotta."
+        ],
 
-        catalogo: {
-            icon: "🍝",
-            title: "Catalogo prodotti",
-            description: "Anagrafica generale dei prodotti",
-            text: "Qui inseriremo e gestiremo tutti i prodotti dell'azienda."
-        },
+        catalogo: [
+            "🍝",
+            "Catalogo prodotti",
+            "Anagrafica generale dei prodotti",
+            ""
+        ],
 
-        produzione: {
-            icon: "🏭",
-            title: "Produzione",
-            description: "Produzione e gestione dei lotti",
-            text: "Qui registreremo la produzione giornaliera e creeremo automaticamente i lotti."
-        },
+        produzione: [
+            "🏭",
+            "Produzione",
+            "Produzione e gestione dei lotti",
+            "Qui registreremo la produzione giornaliera e i lotti."
+        ],
 
-        scadenze: {
-            icon: "🟠",
-            title: "Scadenze",
-            description: "Controllo automatico delle scadenze",
-            text: "Il sistema evidenzierà le scadenze del giorno successivo e quelle del giorno stesso."
-        },
+        scadenze: [
+            "🟠",
+            "Scadenze",
+            "Controllo automatico",
+            "Il sistema controllerà automaticamente le date di scadenza."
+        ],
 
-        temperature: {
-            icon: "🌡️",
-            title: "Temperature",
-            description: "Controllo delle temperature",
-            text: "Qui registreremo e controlleremo automaticamente le temperature."
-        },
+        temperature: [
+            "🌡️",
+            "Temperature",
+            "Controllo delle temperature",
+            "Qui verranno registrate le temperature."
+        ],
 
-        pulizie: {
-            icon: "🧹",
-            title: "Pulizie",
-            description: "Controllo delle pulizie",
-            text: "Qui verranno gestite le pulizie e gli aggiornamenti giornalieri."
-        },
+        pulizie: [
+            "🧹",
+            "Pulizie",
+            "Controllo delle pulizie",
+            "Qui verranno gestite le pulizie giornaliere."
+        ],
 
-        storico: {
-            icon: "📋",
-            title: "Storico movimenti",
-            description: "Storico dei movimenti",
-            text: "Qui conserveremo lo storico di produzione, trasferimenti e movimenti di magazzino."
-        }
+        storico: [
+            "📋",
+            "Storico movimenti",
+            "Storico del magazzino",
+            "Qui conserveremo tutti i movimenti."
+        ]
 
     };
 
@@ -794,22 +793,204 @@ function apriModulo(modulo) {
 
 
     document.getElementById("moduleIcon").textContent =
-        info.icon;
+        info[0];
 
     document.getElementById("moduleTitle").textContent =
-        info.title;
+        info[1];
 
     document.getElementById("moduleDescription").textContent =
-        info.description;
+        info[2];
 
     document.getElementById("placeholderText").textContent =
-        info.text;
+        info[3];
 
     document.getElementById("moduleSede").textContent =
         nomeSede(sedeAttuale);
 
+
+    if (modulo === "catalogo") {
+
+        document.getElementById("catalogoContent").style.display =
+            "block";
+
+        document.getElementById("genericModule").style.display =
+            "none";
+
+        mostraProdotti();
+
+    }
+
 }
 
+
+/* ==================================================
+   CATALOGO
+================================================== */
+
+function mostraFormProdotto() {
+
+    document.getElementById("formProdotto").style.display =
+        "block";
+
+}
+
+
+function nascondiFormProdotto() {
+
+    document.getElementById("formProdotto").style.display =
+        "none";
+
+}
+
+
+function salvaProdotto() {
+
+    const prodotto = {
+
+        id: Date.now(),
+
+        nome:
+            document.getElementById("nomeProdotto").value.trim(),
+
+        codice:
+            document.getElementById("codiceProdotto").value.trim(),
+
+        categoria:
+            document.getElementById("categoriaProdotto").value.trim(),
+
+        gestione:
+            document.getElementById("gestioneProdotto").value,
+
+        durata:
+            document.getElementById("durataProdotto").value,
+
+        peso:
+            document.getElementById("pesoProdotto").value,
+
+        prezzo:
+            document.getElementById("prezzoProdotto").value,
+
+        ingredienti:
+            document.getElementById("ingredientiProdotto").value.trim(),
+
+        allergeni:
+            document.getElementById("allergeniProdotto").value.trim(),
+
+        attivo: true
+
+    };
+
+
+    if (!prodotto.nome) {
+
+        alert("Inserisci almeno il nome del prodotto.");
+
+        return;
+
+    }
+
+
+    prodotti.push(prodotto);
+
+    localStorage.setItem(
+        "prodottiCasereccia",
+        JSON.stringify(prodotti)
+    );
+
+
+    document.getElementById("nomeProdotto").value = "";
+    document.getElementById("codiceProdotto").value = "";
+    document.getElementById("categoriaProdotto").value = "";
+    document.getElementById("durataProdotto").value = "";
+    document.getElementById("pesoProdotto").value = "";
+    document.getElementById("prezzoProdotto").value = "";
+    document.getElementById("ingredientiProdotto").value = "";
+    document.getElementById("allergeniProdotto").value = "";
+
+
+    nascondiFormProdotto();
+
+    mostraProdotti();
+
+}
+
+
+function mostraProdotti() {
+
+    const lista =
+        document.getElementById("listaProdotti");
+
+    const ricerca =
+        document.getElementById("cercaProdotto").value
+            .toLowerCase()
+            .trim();
+
+
+    const filtrati =
+        prodotti.filter(p =>
+            p.nome.toLowerCase().includes(ricerca)
+        );
+
+
+    if (filtrati.length === 0) {
+
+        lista.innerHTML = `
+            <div class="module-placeholder">
+                <div class="placeholder-icon">🍝</div>
+                <h2>Nessun prodotto</h2>
+                <p>
+                    Inserisci il primo prodotto nel catalogo.
+                </p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    lista.innerHTML = filtrati.map(p => `
+
+        <div class="product-card">
+
+            <div class="product-icon">
+                🍝
+            </div>
+
+            <div class="product-info">
+
+                <h3>${p.nome}</h3>
+
+                <p>
+                    ${p.codice || "Nessun codice"}
+                    ·
+                    ${p.categoria || "Senza categoria"}
+                </p>
+
+            </div>
+
+            <div class="product-details">
+
+                <span>${p.gestione}</span>
+
+                ${
+                    p.durata
+                    ? `<span>${p.durata} giorni</span>`
+                    : ""
+                }
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* ==================================================
+   NAVIGAZIONE
+================================================== */
 
 function nomeSede(sede) {
 
@@ -827,28 +1008,30 @@ function nomeSede(sede) {
 }
 
 
-/* ==================================================
-   NAVIGAZIONE
-================================================== */
-
 function tornaDashboard() {
 
-    document.getElementById("modulePage").style.display = "none";
+    document.getElementById("modulePage").style.display =
+        "none";
 
-    document.getElementById("dashboardPage").style.display = "block";
+    document.getElementById("dashboardPage").style.display =
+        "block";
 
 }
 
 
 function tornaAlleSedi() {
 
-    document.getElementById("dashboardPage").style.display = "none";
+    document.getElementById("dashboardPage").style.display =
+        "none";
 
-    document.getElementById("modulePage").style.display = "none";
+    document.getElementById("modulePage").style.display =
+        "none";
 
-    document.getElementById("loginPrincipalePage").style.display = "none";
+    document.getElementById("loginPrincipalePage").style.display =
+        "none";
 
-    document.getElementById("sediPage").style.display = "flex";
+    document.getElementById("sediPage").style.display =
+        "flex";
 
 }
 
