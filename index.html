@@ -4,89 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gestionale - Pasta Fresca La Casereccia</title>
+    <title>Pasta Fresca La Casereccia - Gestionale</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- SCHERMATA DI LOGIN -->
-    <div id="loginPage" class="login-page">
+    <!-- =========================
+         LOGIN
+    ========================== -->
 
-        <div class="login-box">
+    <section id="loginPage" class="screen">
 
-            <h1>🍝 Pasta Fresca La Casereccia</h1>
+        <div class="welcome-box">
 
-            <p class="subtitle">
+            <div class="logo-circle">
+                🍝
+            </div>
+
+            <h1>Pasta Fresca La Casereccia</h1>
+
+            <p class="welcome-text">
                 Gestionale Aziendale
             </p>
 
-            <h2>Accesso al gestionale</h2>
+            <div class="login-card">
 
-            <input
-                type="text"
-                id="username"
-                placeholder="Nome"
-            >
+                <h2>Accesso al gestionale</h2>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password"
-            >
+                <p>Inserisci le tue credenziali per continuare</p>
 
-            <button onclick="login()">
-                ACCEDI
-            </button>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Nome utente"
+                >
 
-            <p id="loginError"></p>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                >
+
+                <button class="main-button" onclick="login()">
+                    ACCEDI
+                </button>
+
+                <p id="loginError" class="error"></p>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- SCELTA DELLA SEDE -->
-    <div id="sediPage" class="login-page" style="display: none;">
+    <!-- =========================
+         SCELTA SEDE
+    ========================== -->
 
-        <div class="login-box">
+    <section id="sediPage" class="screen" style="display:none;">
 
-            <h1>🍝 Pasta Fresca La Casereccia</h1>
+        <div class="welcome-box">
 
-            <p class="subtitle">
-                Gestionale Aziendale
+            <div class="logo-circle">
+                🍝
+            </div>
+
+            <h1>Pasta Fresca La Casereccia</h1>
+
+            <p class="welcome-text">
+                Seleziona il punto da gestire
             </p>
 
-            <h2>Scegli la sede</h2>
+            <div class="sedi-container">
 
-            <button onclick="apriSede('principale')">
-                🏢 Sede Principale
-            </button>
+                <button
+                    class="sede-button principale"
+                    onclick="apriSede('principale')"
+                >
+                    <span class="sede-icon">🏢</span>
 
-            <button onclick="apriSede('senigallia')">
-                📍 Senigallia
-            </button>
+                    <span>
+                        <strong>Sede Principale</strong>
+                        <small>Gestione completa</small>
+                    </span>
+                </button>
 
-            <button onclick="apriSede('marotta')">
-                📍 Marotta
-            </button>
+
+                <button
+                    class="sede-button"
+                    onclick="apriSede('senigallia')"
+                >
+                    <span class="sede-icon">📍</span>
+
+                    <span>
+                        <strong>Senigallia</strong>
+                        <small>Gestione punto vendita</small>
+                    </span>
+                </button>
+
+
+                <button
+                    class="sede-button"
+                    onclick="apriSede('marotta')"
+                >
+                    <span class="sede-icon">📍</span>
+
+                    <span>
+                        <strong>Marotta</strong>
+                        <small>Gestione punto vendita</small>
+                    </span>
+                </button>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- DASHBOARD -->
-    <div id="dashboardPage" style="display: none;">
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
+
+    <section id="dashboardPage" style="display:none;">
 
         <header>
 
-            <h1>🍝 Pasta Fresca La Casereccia</h1>
+            <div>
+                <h1>🍝 Pasta Fresca La Casereccia</h1>
 
-            <p id="sedeNome">
-                Gestionale Aziendale
-            </p>
+                <p id="sedeNome">
+                    Gestionale Aziendale
+                </p>
+            </div>
+
+            <button
+                class="back-button"
+                onclick="tornaAlleSedi()"
+            >
+                ← Torna alla scelta sede
+            </button>
 
         </header>
 
@@ -100,7 +160,6 @@
 
             <div class="cards">
 
-                <!-- MAGAZZINO -->
                 <div class="card">
                     <h2>📦 Magazzino</h2>
                     <p id="magazzinoText">
@@ -109,7 +168,6 @@
                 </div>
 
 
-                <!-- ORDINI -->
                 <div class="card">
                     <h2>🧾 Ordini</h2>
                     <p id="ordiniText">
@@ -118,7 +176,6 @@
                 </div>
 
 
-                <!-- SCADENZE -->
                 <div class="card alert">
                     <h2>🟠 Scadenze</h2>
                     <p id="scadenzeText">
@@ -127,7 +184,6 @@
                 </div>
 
 
-                <!-- TEMPERATURE -->
                 <div class="card">
                     <h2>🌡️ Temperature</h2>
                     <p id="temperatureText">
@@ -136,7 +192,6 @@
                 </div>
 
 
-                <!-- PULIZIE -->
                 <div class="card">
                     <h2>🧹 Pulizie</h2>
                     <p id="pulizieText">
@@ -145,8 +200,7 @@
                 </div>
 
 
-                <!-- PRODUZIONE -->
-                <div class="card" id="produzioneCard">
+                <div class="card">
                     <h2>🏭 Produzione</h2>
                     <p>
                         Gestione produzione
@@ -157,17 +211,10 @@
 
         </main>
 
-    </div>
+    </section>
 
 
     <script>
-
-        /*
-         * LOGIN DI PROVA
-         *
-         * Nome: pasta
-         * Password: pasta
-         */
 
         function login() {
 
@@ -192,16 +239,12 @@
             } else {
 
                 error.textContent =
-                    "Nome o password non corretti.";
+                    "Nome utente o password non corretti.";
 
             }
 
         }
 
-
-        /*
-         * APERTURA DELLA SEDE
-         */
 
         function apriSede(sede) {
 
@@ -210,105 +253,88 @@
             document.getElementById("dashboardPage").style.display = "block";
 
 
-            const sedeNome =
-                document.getElementById("sedeNome");
-
-            const titolo =
-                document.getElementById("dashboardTitolo");
-
-
-            const magazzino =
-                document.getElementById("magazzinoText");
-
-            const ordini =
-                document.getElementById("ordiniText");
-
-            const scadenze =
-                document.getElementById("scadenzeText");
-
-            const temperature =
-                document.getElementById("temperatureText");
-
-            const pulizie =
-                document.getElementById("pulizieText");
-
-
             if (sede === "principale") {
 
-                sedeNome.textContent =
+                document.getElementById("sedeNome").textContent =
                     "🏢 Sede Principale";
 
-                titolo.textContent =
+                document.getElementById("dashboardTitolo").textContent =
                     "Controllo generale azienda";
 
-                magazzino.textContent =
+                document.getElementById("magazzinoText").textContent =
                     "Centrale + Senigallia + Marotta";
 
-                ordini.textContent =
+                document.getElementById("ordiniText").textContent =
                     "Ordini di Senigallia e Marotta";
 
-                scadenze.textContent =
+                document.getElementById("scadenzeText").textContent =
                     "Scadenze di tutte le sedi";
 
-                temperature.textContent =
+                document.getElementById("temperatureText").textContent =
                     "Temperature di tutte le sedi";
 
-                pulizie.textContent =
+                document.getElementById("pulizieText").textContent =
                     "Pulizie di tutte le sedi";
-
             }
 
 
             if (sede === "senigallia") {
 
-                sedeNome.textContent =
+                document.getElementById("sedeNome").textContent =
                     "📍 Senigallia";
 
-                titolo.textContent =
+                document.getElementById("dashboardTitolo").textContent =
                     "Gestionale Senigallia";
 
-                magazzino.textContent =
+                document.getElementById("magazzinoText").textContent =
                     "Magazzino Senigallia";
 
-                ordini.textContent =
+                document.getElementById("ordiniText").textContent =
                     "Ordini Senigallia";
 
-                scadenze.textContent =
+                document.getElementById("scadenzeText").textContent =
                     "Scadenze Senigallia";
 
-                temperature.textContent =
+                document.getElementById("temperatureText").textContent =
                     "Temperature Senigallia";
 
-                pulizie.textContent =
+                document.getElementById("pulizieText").textContent =
                     "Pulizie Senigallia";
-
             }
 
 
             if (sede === "marotta") {
 
-                sedeNome.textContent =
+                document.getElementById("sedeNome").textContent =
                     "📍 Marotta";
 
-                titolo.textContent =
+                document.getElementById("dashboardTitolo").textContent =
                     "Gestionale Marotta";
 
-                magazzino.textContent =
+                document.getElementById("magazzinoText").textContent =
                     "Magazzino Marotta";
 
-                ordini.textContent =
+                document.getElementById("ordiniText").textContent =
                     "Ordini Marotta";
 
-                scadenze.textContent =
+                document.getElementById("scadenzeText").textContent =
                     "Scadenze Marotta";
 
-                temperature.textContent =
+                document.getElementById("temperatureText").textContent =
                     "Temperature Marotta";
 
-                pulizie.textContent =
+                document.getElementById("pulizieText").textContent =
                     "Pulizie Marotta";
-
             }
+
+        }
+
+
+        function tornaAlleSedi() {
+
+            document.getElementById("dashboardPage").style.display = "none";
+
+            document.getElementById("sediPage").style.display = "flex";
 
         }
 
