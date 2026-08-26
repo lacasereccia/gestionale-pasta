@@ -4,72 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gestionale - Pasta Fresca La Casereccia</title>
+    <title>Gestionale - La Casereccia</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>🍝 Pasta Fresca La Casereccia</h1>
-    <p>Gestionale Aziendale</p>
-</header>
+    <div class="login-page">
 
-<main class="dashboard">
+        <div class="login-box">
 
-    <h2>Dashboard principale</h2>
+            <h1>🍝 Pasta Fresca La Casereccia</h1>
 
-    <div class="cards">
+            <p class="subtitle">
+                Gestionale Aziendale
+            </p>
 
-        <div class="card">
-            <h2>🏢 Sede Principale</h2>
-            <p>Gestione generale dell'azienda</p>
-        </div>
+            <h2>Dove vuoi accedere?</h2>
 
-        <div class="card">
-            <h2>📍 Senigallia</h2>
-            <p>Ordini e magazzino</p>
-        </div>
+            <button onclick="accessoPrincipale()">
+                🏢 Sede Principale
+            </button>
 
-        <div class="card">
-            <h2>📍 Marotta</h2>
-            <p>Ordini e magazzino</p>
-        </div>
+            <button onclick="accessoSede('senigallia')">
+                📍 Senigallia
+            </button>
 
-        <div class="card">
-            <h2>📦 Magazzini</h2>
-            <p>Gestione delle scorte e dei movimenti</p>
-        </div>
+            <button onclick="accessoSede('marotta')">
+                📍 Marotta
+            </button>
 
-        <div class="card">
-            <h2>🧾 Ordini</h2>
-            <p>Ordini ricevuti dai punti vendita</p>
-        </div>
+            <div id="loginPrincipale" class="login-form">
 
-        <div class="card alert">
-            <h2>🟠 Scadenze</h2>
-            <p>Prodotti prossimi alla scadenza</p>
-        </div>
+                <h3>Accesso Sede Principale</h3>
 
-        <div class="card danger">
-            <h2>🔴 Attenzione</h2>
-            <p>Prodotti con scadenza odierna</p>
-        </div>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Nome utente"
+                >
 
-        <div class="card">
-            <h2>🌡️ Temperature</h2>
-            <p>Controllo e registrazione temperature</p>
-        </div>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                >
 
-        <div class="card">
-            <h2>🧹 Pulizie</h2>
-            <p>Controllo delle attività di pulizia</p>
+                <button onclick="loginPrincipale()">
+                    ACCEDI
+                </button>
+
+                <p id="errore"></p>
+
+            </div>
+
         </div>
 
     </div>
 
-</main>
+    <script>
+
+        function accessoPrincipale() {
+
+            document.getElementById("loginPrincipale").style.display = "block";
+
+        }
+
+        function accessoSede(sede) {
+
+            if (sede === "senigallia") {
+                alert("Accesso a Senigallia");
+            }
+
+            if (sede === "marotta") {
+                alert("Accesso a Marotta");
+            }
+
+        }
+
+        function loginPrincipale() {
+
+            alert("Il sistema di autenticazione verrà collegato al database.");
+
+        }
+
+    </script>
 
 </body>
 </html>
