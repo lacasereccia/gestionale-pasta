@@ -9,7 +9,10 @@
 
 <body>
 
-<!-- LOGIN -->
+<!-- =========================
+     LOGIN GENERALE
+========================= -->
+
 <section id="loginPage" class="page login-page">
 
     <div class="login-container">
@@ -43,23 +46,30 @@
 </section>
 
 
-<!-- SCELTA SEDE -->
+<!-- =========================
+     SCELTA SEDE
+========================= -->
+
 <section id="sediPage" class="page" style="display:none;">
 
     <div class="selection-container">
 
         <div class="page-brand">
+
             <div class="small-logo">🍝</div>
 
             <div>
                 <h1>La Casereccia</h1>
                 <span>Gestionale Aziendale</span>
             </div>
+
         </div>
 
         <div class="selection-title">
+
             <h2>Seleziona la sede</h2>
             <p>Scegli il punto da gestire</p>
+
         </div>
 
         <div class="sede-grid">
@@ -109,12 +119,16 @@
             </button>
 
         </div>
+
     </div>
 
 </section>
 
 
-<!-- LOGIN PRINCIPALE -->
+<!-- =========================
+     LOGIN SEDE PRINCIPALE
+========================= -->
+
 <section id="loginPrincipalePage"
          class="page login-page"
          style="display:none;">
@@ -122,46 +136,69 @@
     <div class="login-container">
 
         <div class="brand">
+
             <div class="brand-icon">🏢</div>
+
             <h1>Sede Principale</h1>
+
             <span>ACCESSO RISERVATO</span>
+
         </div>
+
 
         <div class="login-box">
 
             <h2>Accesso riservato</h2>
+
             <p>Gestione completa azienda</p>
 
             <label>Nome</label>
+
             <input id="usernamePrincipale"
                    type="text"
                    placeholder="Nome">
 
+
             <label>Password</label>
+
             <input id="passwordPrincipale"
                    type="password"
                    placeholder="Password">
 
+
             <button class="primary-button"
                     onclick="loginPrincipale()">
+
                 ACCEDI
+
             </button>
+
 
             <button class="secondary-button"
                     onclick="tornaAlleSedi()">
+
                 ← Torna alla scelta sede
+
             </button>
 
-            <div id="principaleError" class="error"></div>
+
+            <div id="principaleError"
+                 class="error">
+            </div>
 
         </div>
+
     </div>
 
 </section>
 
 
-<!-- DASHBOARD -->
-<section id="dashboardPage" style="display:none;">
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<section id="dashboardPage"
+         style="display:none;">
 
     <header class="topbar">
 
@@ -170,15 +207,23 @@
             <div class="topbar-logo">🍝</div>
 
             <div>
+
                 <strong>La Casereccia</strong>
-                <span id="sedeNome">Gestionale</span>
+
+                <span id="sedeNome">
+                    Gestionale
+                </span>
+
             </div>
 
         </div>
 
+
         <button class="back-button"
                 onclick="tornaAlleSedi()">
+
             ← Cambia sede
+
         </button>
 
     </header>
@@ -209,14 +254,18 @@
 
         <div class="dashboard-grid">
 
+
             <button class="module-card"
                     onclick="apriModulo('magazzino')">
 
                 <div class="module-icon">📦</div>
 
                 <div class="module-text">
+
                     <h3>Magazzino</h3>
+
                     <p>Gestione delle scorte</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -230,8 +279,11 @@
                 <div class="module-icon">🧾</div>
 
                 <div class="module-text">
+
                     <h3>Ordini</h3>
+
                     <p>Gestione degli ordini</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -245,8 +297,11 @@
                 <div class="module-icon">🍝</div>
 
                 <div class="module-text">
+
                     <h3>Catalogo prodotti</h3>
+
                     <p>Gestione prodotti aziendali</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -260,8 +315,11 @@
                 <div class="module-icon">🏭</div>
 
                 <div class="module-text">
+
                     <h3>Produzione</h3>
+
                     <p>Produzione e lotti</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -275,8 +333,11 @@
                 <div class="module-icon">🟠</div>
 
                 <div class="module-text">
+
                     <h3>Scadenze</h3>
+
                     <p>Controllo automatico</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -290,8 +351,11 @@
                 <div class="module-icon">🌡️</div>
 
                 <div class="module-text">
+
                     <h3>Temperature</h3>
+
                     <p>Controllo temperature</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -305,8 +369,11 @@
                 <div class="module-icon">🧹</div>
 
                 <div class="module-text">
+
                     <h3>Pulizie</h3>
+
                     <p>Controllo pulizie</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -320,8 +387,11 @@
                 <div class="module-icon">📋</div>
 
                 <div class="module-text">
+
                     <h3>Storico movimenti</h3>
+
                     <p>Movimenti di magazzino</p>
+
                 </div>
 
                 <span class="module-arrow">→</span>
@@ -335,7 +405,10 @@
 </section>
 
 
-<!-- MODULO -->
+<!-- =========================
+     MODULI
+========================= -->
+
 <section id="modulePage"
          class="module-page"
          style="display:none;">
@@ -347,15 +420,23 @@
             <div class="topbar-logo">🍝</div>
 
             <div>
+
                 <strong>La Casereccia</strong>
-                <span id="moduleSede">Gestionale</span>
+
+                <span id="moduleSede">
+                    Gestionale
+                </span>
+
             </div>
 
         </div>
 
+
         <button class="back-button"
                 onclick="tornaDashboard()">
+
             ← Torna al gestionale
+
         </button>
 
     </header>
@@ -363,11 +444,14 @@
 
     <main class="module-container">
 
+
         <div class="module-header">
 
             <div class="module-big-icon"
                  id="moduleIcon">
+
                 🍝
+
             </div>
 
             <div>
@@ -389,7 +473,9 @@
         </div>
 
 
-        <!-- CATALOGO PRODOTTI -->
+        <!-- =========================
+             CATALOGO
+        ========================= -->
 
         <div id="catalogoContent"
              style="display:none;">
@@ -403,44 +489,69 @@
                     oninput="mostraProdotti()"
                 >
 
+
                 <button
                     class="primary-button catalogo-button"
-                    onclick="mostraFormProdotto()"
-                >
+                    onclick="mostraFormProdotto()">
+
                     + NUOVO PRODOTTO
+
                 </button>
 
             </div>
 
 
+            <!-- FORM PRODOTTO -->
+
             <div id="formProdotto"
                  class="product-form"
                  style="display:none;">
 
-                <h2>Nuovo prodotto</h2>
-
-                <label>Nome prodotto</label>
-
-                <input id="nomeProdotto"
-                       type="text"
-                       placeholder="Es. Cappelletti piccoli">
+                <h2 id="titoloFormProdotto">
+                    Nuovo prodotto
+                </h2>
 
 
-                <label>Codice prodotto</label>
-
-                <input id="codiceProdotto"
-                       type="text"
-                       placeholder="Es. CAP001">
+                <input id="idProdottoModifica"
+                       type="hidden">
 
 
-                <label>Categoria</label>
+                <label>
+                    Nome prodotto
+                </label>
 
-                <input id="categoriaProdotto"
-                       type="text"
-                       placeholder="Es. Pasta ripiena">
+                <input
+                    id="nomeProdotto"
+                    type="text"
+                    placeholder="Es. Cappelletti piccoli"
+                >
 
 
-                <label>Gestione prodotto</label>
+                <label>
+                    Codice prodotto
+                </label>
+
+                <input
+                    id="codiceProdotto"
+                    type="text"
+                    placeholder="Es. CAP001"
+                >
+
+
+                <label>
+                    Categoria
+                </label>
+
+                <input
+                    id="categoriaProdotto"
+                    type="text"
+                    placeholder="Es. Pasta ripiena"
+                >
+
+
+                <label>
+                    Gestione prodotto
+                </label>
 
                 <select id="gestioneProdotto">
 
@@ -459,62 +570,88 @@
                 </select>
 
 
-                <label>Durata</label>
+                <label>
+                    Durata
+                </label>
 
                 <div class="input-row">
 
-                    <input id="durataProdotto"
-                           type="number"
-                           min="1"
-                           placeholder="Numero">
+                    <input
+                        id="durataProdotto"
+                        type="number"
+                        min="1"
+                        placeholder="Numero"
+                    >
 
-                    <span>giorni</span>
+                    <span>
+                        giorni
+                    </span>
 
                 </div>
 
 
-                <label>Peso confezione</label>
+                <label>
+                    Peso confezione
+                </label>
 
-                <input id="pesoProdotto"
-                       type="number"
-                       step="0.01"
-                       placeholder="Kg">
-
-
-                <label>Prezzo</label>
-
-                <input id="prezzoProdotto"
-                       type="number"
-                       step="0.01"
-                       placeholder="€">
+                <input
+                    id="pesoProdotto"
+                    type="number"
+                    step="0.01"
+                    placeholder="Kg"
+                >
 
 
-                <label>Ingredienti</label>
+                <label>
+                    Prezzo
+                </label>
 
-                <textarea id="ingredientiProdotto"
-                          placeholder="Ingredienti"></textarea>
+                <input
+                    id="prezzoProdotto"
+                    type="number"
+                    step="0.01"
+                    placeholder="€"
+                >
 
 
-                <label>Allergeni</label>
+                <label>
+                    Ingredienti
+                </label>
 
-                <textarea id="allergeniProdotto"
-                          placeholder="Allergeni"></textarea>
+                <textarea
+                    id="ingredientiProdotto"
+                    placeholder="Ingredienti">
+                </textarea>
+
+
+                <label>
+                    Allergeni
+                </label>
+
+                <textarea
+                    id="allergeniProdotto"
+                    placeholder="Allergeni">
+                </textarea>
 
 
                 <div class="form-actions">
 
                     <button
+                        id="salvaProdottoButton"
                         class="primary-button"
-                        onclick="salvaProdotto()"
-                    >
+                        onclick="salvaProdotto()">
+
                         SALVA PRODOTTO
+
                     </button>
+
 
                     <button
                         class="secondary-button"
-                        onclick="nascondiFormProdotto()"
-                    >
+                        onclick="nascondiFormProdotto()">
+
                         ANNULLA
+
                     </button>
 
                 </div>
@@ -529,7 +666,7 @@
         </div>
 
 
-        <!-- MODULI NON ANCORA COSTRUITI -->
+        <!-- MODULO GENERICO -->
 
         <div id="genericModule"
              class="module-placeholder">
@@ -538,7 +675,9 @@
                 ⚙️
             </div>
 
-            <h2>Sezione in costruzione</h2>
+            <h2>
+                Sezione in costruzione
+            </h2>
 
             <p id="placeholderText">
                 Questa sezione verrà collegata al database.
@@ -553,20 +692,22 @@
 
 <script>
 
-/* ==================================================
-   VARIABILI
-================================================== */
+/* =========================================
+   DATI
+========================================= */
 
 let sedeAttuale = "";
+
+let prodottoInModifica = null;
 
 let prodotti = JSON.parse(
     localStorage.getItem("prodottiCasereccia") || "[]"
 );
 
 
-/* ==================================================
-   LOGIN
-================================================== */
+/* =========================================
+   LOGIN GENERALE
+========================================= */
 
 function loginGenerale() {
 
@@ -576,7 +717,9 @@ function loginGenerale() {
     const password =
         document.getElementById("password").value.trim();
 
-    if (username === "pasta" && password === "pasta") {
+
+    if (username === "pasta" &&
+        password === "pasta") {
 
         document.getElementById("loginPage").style.display =
             "none";
@@ -584,7 +727,8 @@ function loginGenerale() {
         document.getElementById("sediPage").style.display =
             "flex";
 
-        document.getElementById("loginError").textContent = "";
+        document.getElementById("loginError").textContent =
+            "";
 
     } else {
 
@@ -596,9 +740,9 @@ function loginGenerale() {
 }
 
 
-/* ==================================================
+/* =========================================
    LOGIN PRINCIPALE
-================================================== */
+========================================= */
 
 function richiediAccessoPrincipale() {
 
@@ -619,7 +763,9 @@ function loginPrincipale() {
     const password =
         document.getElementById("passwordPrincipale").value.trim();
 
-    if (username === "pane" && password === "pane") {
+
+    if (username === "pane" &&
+        password === "pane") {
 
         document.getElementById("principaleError").textContent =
             "";
@@ -636,13 +782,14 @@ function loginPrincipale() {
 }
 
 
-/* ==================================================
+/* =========================================
    SEDI
-================================================== */
+========================================= */
 
 function apriSede(sede) {
 
     sedeAttuale = sede;
+
 
     document.getElementById("sediPage").style.display =
         "none";
@@ -708,9 +855,9 @@ function apriSede(sede) {
 }
 
 
-/* ==================================================
+/* =========================================
    MODULI
-================================================== */
+========================================= */
 
 function apriModulo(modulo) {
 
@@ -823,11 +970,23 @@ function apriModulo(modulo) {
 }
 
 
-/* ==================================================
-   CATALOGO
-================================================== */
+/* =========================================
+   NUOVO PRODOTTO
+========================================= */
 
 function mostraFormProdotto() {
+
+    prodottoInModifica = null;
+
+    document.getElementById("titoloFormProdotto").textContent =
+        "Nuovo prodotto";
+
+    document.getElementById("salvaProdottoButton").textContent =
+        "SALVA PRODOTTO";
+
+
+    pulisciFormProdotto();
+
 
     document.getElementById("formProdotto").style.display =
         "block";
@@ -835,7 +994,13 @@ function mostraFormProdotto() {
 }
 
 
+/* =========================================
+   NASCONDI FORM
+========================================= */
+
 function nascondiFormProdotto() {
+
+    prodottoInModifica = null;
 
     document.getElementById("formProdotto").style.display =
         "none";
@@ -843,14 +1008,69 @@ function nascondiFormProdotto() {
 }
 
 
+/* =========================================
+   PULISCI FORM
+========================================= */
+
+function pulisciFormProdotto() {
+
+    document.getElementById("idProdottoModifica").value =
+        "";
+
+    document.getElementById("nomeProdotto").value =
+        "";
+
+    document.getElementById("codiceProdotto").value =
+        "";
+
+    document.getElementById("categoriaProdotto").value =
+        "";
+
+    document.getElementById("gestioneProdotto").value =
+        "Fresco";
+
+    document.getElementById("durataProdotto").value =
+        "";
+
+    document.getElementById("pesoProdotto").value =
+        "";
+
+    document.getElementById("prezzoProdotto").value =
+        "";
+
+    document.getElementById("ingredientiProdotto").value =
+        "";
+
+    document.getElementById("allergeniProdotto").value =
+        "";
+
+}
+
+
+/* =========================================
+   SALVA / MODIFICA PRODOTTO
+========================================= */
+
 function salvaProdotto() {
 
-    const prodotto = {
+    const nome =
+        document.getElementById("nomeProdotto").value.trim();
 
-        id: Date.now(),
 
-        nome:
-            document.getElementById("nomeProdotto").value.trim(),
+    if (!nome) {
+
+        alert(
+            "Inserisci almeno il nome del prodotto."
+        );
+
+        return;
+
+    }
+
+
+    const datiProdotto = {
+
+        nome: nome,
 
         codice:
             document.getElementById("codiceProdotto").value.trim(),
@@ -881,31 +1101,50 @@ function salvaProdotto() {
     };
 
 
-    if (!prodotto.nome) {
+    /* MODIFICA */
 
-        alert("Inserisci almeno il nome del prodotto.");
+    if (prodottoInModifica !== null) {
 
-        return;
+        const indice =
+            prodotti.findIndex(
+                p => p.id === prodottoInModifica
+            );
+
+
+        if (indice !== -1) {
+
+            prodotti[indice] = {
+
+                ...prodotti[indice],
+
+                ...datiProdotto
+
+            };
+
+        }
 
     }
 
 
-    prodotti.push(prodotto);
+    /* NUOVO */
+
+    else {
+
+        prodotti.push({
+
+            id: Date.now(),
+
+            ...datiProdotto
+
+        });
+
+    }
+
 
     localStorage.setItem(
         "prodottiCasereccia",
         JSON.stringify(prodotti)
     );
-
-
-    document.getElementById("nomeProdotto").value = "";
-    document.getElementById("codiceProdotto").value = "";
-    document.getElementById("categoriaProdotto").value = "";
-    document.getElementById("durataProdotto").value = "";
-    document.getElementById("pesoProdotto").value = "";
-    document.getElementById("prezzoProdotto").value = "";
-    document.getElementById("ingredientiProdotto").value = "";
-    document.getElementById("allergeniProdotto").value = "";
 
 
     nascondiFormProdotto();
@@ -915,33 +1154,176 @@ function salvaProdotto() {
 }
 
 
+/* =========================================
+   MODIFICA PRODOTTO
+========================================= */
+
+function modificaProdotto(id) {
+
+    const prodotto =
+        prodotti.find(
+            p => p.id === id
+        );
+
+
+    if (!prodotto) {
+
+        alert(
+            "Prodotto non trovato."
+        );
+
+        return;
+
+    }
+
+
+    prodottoInModifica = id;
+
+
+    document.getElementById("titoloFormProdotto").textContent =
+        "Modifica prodotto";
+
+    document.getElementById("salvaProdottoButton").textContent =
+        "SALVA MODIFICHE";
+
+
+    document.getElementById("idProdottoModifica").value =
+        prodotto.id;
+
+
+    document.getElementById("nomeProdotto").value =
+        prodotto.nome || "";
+
+    document.getElementById("codiceProdotto").value =
+        prodotto.codice || "";
+
+    document.getElementById("categoriaProdotto").value =
+        prodotto.categoria || "";
+
+    document.getElementById("gestioneProdotto").value =
+        prodotto.gestione || "Fresco";
+
+    document.getElementById("durataProdotto").value =
+        prodotto.durata || "";
+
+    document.getElementById("pesoProdotto").value =
+        prodotto.peso || "";
+
+    document.getElementById("prezzoProdotto").value =
+        prodotto.prezzo || "";
+
+    document.getElementById("ingredientiProdotto").value =
+        prodotto.ingredienti || "";
+
+    document.getElementById("allergeniProdotto").value =
+        prodotto.allergeni || "";
+
+
+    document.getElementById("formProdotto").style.display =
+        "block";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================
+   ELIMINA PRODOTTO
+========================================= */
+
+function eliminaProdotto(id) {
+
+    const prodotto =
+        prodotti.find(
+            p => p.id === id
+        );
+
+
+    if (!prodotto) {
+        return;
+    }
+
+
+    const conferma =
+        confirm(
+            'Sei sicuro di voler eliminare "' +
+            prodotto.nome +
+            '"?'
+        );
+
+
+    if (!conferma) {
+        return;
+    }
+
+
+    prodotti =
+        prodotti.filter(
+            p => p.id !== id
+        );
+
+
+    localStorage.setItem(
+        "prodottiCasereccia",
+        JSON.stringify(prodotti)
+    );
+
+
+    mostraProdotti();
+
+}
+
+
+/* =========================================
+   MOSTRA PRODOTTI
+========================================= */
+
 function mostraProdotti() {
 
     const lista =
         document.getElementById("listaProdotti");
 
+
     const ricerca =
-        document.getElementById("cercaProdotto").value
+        document.getElementById("cercaProdotto")
+            .value
             .toLowerCase()
             .trim();
 
 
     const filtrati =
-        prodotti.filter(p =>
-            p.nome.toLowerCase().includes(ricerca)
+        prodotti.filter(
+            p =>
+                (p.nome || "")
+                    .toLowerCase()
+                    .includes(ricerca)
         );
 
 
     if (filtrati.length === 0) {
 
         lista.innerHTML = `
+
             <div class="module-placeholder">
-                <div class="placeholder-icon">🍝</div>
-                <h2>Nessun prodotto</h2>
+
+                <div class="placeholder-icon">
+                    🍝
+                </div>
+
+                <h2>
+                    Nessun prodotto
+                </h2>
+
                 <p>
                     Inserisci il primo prodotto nel catalogo.
                 </p>
+
             </div>
+
         `;
 
         return;
@@ -949,48 +1331,96 @@ function mostraProdotti() {
     }
 
 
-    lista.innerHTML = filtrati.map(p => `
+    lista.innerHTML =
+        filtrati.map(p => `
 
-        <div class="product-card">
+            <div class="product-card">
 
-            <div class="product-icon">
-                🍝
+                <div class="product-icon">
+                    🍝
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        ${escapeHtml(p.nome)}
+                    </h3>
+
+                    <p>
+                        ${escapeHtml(p.codice || "Nessun codice")}
+                        ·
+                        ${escapeHtml(p.categoria || "Senza categoria")}
+                    </p>
+
+                </div>
+
+
+                <div class="product-details">
+
+                    <span>
+                        ${escapeHtml(p.gestione || "")}
+                    </span>
+
+                    ${
+                        p.durata
+                        ? `<span>
+                            ${escapeHtml(p.durata)}
+                            giorni
+                           </span>`
+                        : ""
+                    }
+
+                </div>
+
+
+                <div class="product-actions">
+
+                    <button
+                        class="edit-button"
+                        onclick="modificaProdotto(${p.id})">
+
+                        ✏️ Modifica
+
+                    </button>
+
+
+                    <button
+                        class="delete-button"
+                        onclick="eliminaProdotto(${p.id})">
+
+                        🗑️ Elimina
+
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="product-info">
-
-                <h3>${p.nome}</h3>
-
-                <p>
-                    ${p.codice || "Nessun codice"}
-                    ·
-                    ${p.categoria || "Senza categoria"}
-                </p>
-
-            </div>
-
-            <div class="product-details">
-
-                <span>${p.gestione}</span>
-
-                ${
-                    p.durata
-                    ? `<span>${p.durata} giorni</span>`
-                    : ""
-                }
-
-            </div>
-
-        </div>
-
-    `).join("");
+        `).join("");
 
 }
 
 
-/* ==================================================
+/* =========================================
+   SICUREZZA TESTO
+========================================= */
+
+function escapeHtml(testo) {
+
+    return String(testo)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================
    NAVIGAZIONE
-================================================== */
+========================================= */
 
 function nomeSede(sede) {
 
