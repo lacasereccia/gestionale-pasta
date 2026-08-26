@@ -3,51 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasta Fresca La Casereccia - Gestionale</title>
+
+    <title>La Casereccia | Gestionale</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     1. LOGIN GENERALE
-========================= -->
+<!-- ==================================================
+     LOGIN GENERALE
+================================================== -->
 
-<section id="loginPage" class="screen">
+<section id="loginPage" class="page login-page">
 
-    <div class="welcome-box">
+    <div class="login-container">
 
-        <div class="logo-circle">🍝</div>
+        <div class="brand">
+            <div class="brand-icon">🍝</div>
 
-        <h1>Pasta Fresca La Casereccia</h1>
+            <h1>La Casereccia</h1>
 
-        <p class="welcome-text">
-            Gestionale Aziendale
-        </p>
+            <span>PASTA FRESCA</span>
+        </div>
 
-        <div class="login-card">
+        <div class="login-box">
 
-            <h2>Accesso al gestionale</h2>
+            <h2>Benvenuto</h2>
 
-            <p>Inserisci nome e password</p>
+            <p>Accedi al gestionale aziendale</p>
+
+            <label>Nome</label>
 
             <input
-                type="text"
                 id="username"
-                placeholder="Nome"
+                type="text"
+                placeholder="Inserisci il nome"
             >
+
+            <label>Password</label>
 
             <input
-                type="password"
                 id="password"
-                placeholder="Password"
+                type="password"
+                placeholder="Inserisci la password"
             >
 
-            <button class="main-button" onclick="loginGenerale()">
+            <button class="primary-button" onclick="loginGenerale()">
                 ACCEDI
             </button>
 
-            <p id="loginError" class="error"></p>
+            <div id="loginError" class="error"></div>
 
         </div>
 
@@ -56,60 +62,93 @@
 </section>
 
 
-<!-- =========================
-     2. SCELTA SEDE
-========================= -->
+<!-- ==================================================
+     SCELTA SEDE
+================================================== -->
 
-<section id="sediPage" class="screen" style="display:none;">
+<section id="sediPage" class="page" style="display:none;">
 
-    <div class="welcome-box">
+    <div class="selection-container">
 
-        <div class="logo-circle">🍝</div>
+        <div class="page-brand">
 
-        <h1>Pasta Fresca La Casereccia</h1>
+            <div class="small-logo">🍝</div>
 
-        <p class="welcome-text">
-            Seleziona il punto da gestire
-        </p>
+            <div>
+                <h1>La Casereccia</h1>
+                <span>Gestionale Aziendale</span>
+            </div>
 
-        <div class="sedi-container">
+        </div>
+
+        <div class="selection-title">
+
+            <h2>Seleziona la sede</h2>
+
+            <p>Scegli il punto che vuoi gestire</p>
+
+        </div>
+
+
+        <div class="sede-grid">
 
             <button
-                class="sede-button principale"
+                class="sede-card centrale"
                 onclick="richiediAccessoPrincipale()"
             >
-                <span class="sede-icon">🏢</span>
 
-                <span>
-                    <strong>Sede Principale</strong>
-                    <small>Gestione completa azienda</small>
-                </span>
+                <div class="sede-card-icon">🏢</div>
+
+                <div class="sede-card-content">
+
+                    <h3>Sede Principale</h3>
+
+                    <p>Controllo e gestione completa</p>
+
+                </div>
+
+                <span class="arrow">→</span>
+
             </button>
 
 
             <button
-                class="sede-button"
+                class="sede-card"
                 onclick="apriSede('senigallia')"
             >
-                <span class="sede-icon">📍</span>
 
-                <span>
-                    <strong>Senigallia</strong>
-                    <small>Gestione punto vendita</small>
-                </span>
+                <div class="sede-card-icon">📍</div>
+
+                <div class="sede-card-content">
+
+                    <h3>Senigallia</h3>
+
+                    <p>Gestione punto vendita</p>
+
+                </div>
+
+                <span class="arrow">→</span>
+
             </button>
 
 
             <button
-                class="sede-button"
+                class="sede-card"
                 onclick="apriSede('marotta')"
             >
-                <span class="sede-icon">📍</span>
 
-                <span>
-                    <strong>Marotta</strong>
-                    <small>Gestione punto vendita</small>
-                </span>
+                <div class="sede-card-icon">📍</div>
+
+                <div class="sede-card-content">
+
+                    <h3>Marotta</h3>
+
+                    <p>Gestione punto vendita</p>
+
+                </div>
+
+                <span class="arrow">→</span>
+
             </button>
 
         </div>
@@ -119,48 +158,66 @@
 </section>
 
 
-<!-- =========================
-     3. LOGIN SEDE PRINCIPALE
-========================= -->
+<!-- ==================================================
+     ACCESSO SEDE PRINCIPALE
+================================================== -->
 
-<section id="loginPrincipalePage" class="screen" style="display:none;">
+<section
+    id="loginPrincipalePage"
+    class="page login-page"
+    style="display:none;"
+>
 
-    <div class="welcome-box">
+    <div class="login-container">
 
-        <div class="logo-circle">🏢</div>
+        <div class="brand">
 
-        <h1>Sede Principale</h1>
+            <div class="brand-icon">🏢</div>
 
-        <p class="welcome-text">
-            Accesso alla gestione completa
-        </p>
+            <h1>Sede Principale</h1>
 
-        <div class="login-card">
+            <span>ACCESSO RISERVATO</span>
+
+        </div>
+
+
+        <div class="login-box">
 
             <h2>Accesso riservato</h2>
 
+            <p>Inserisci le credenziali della sede principale</p>
+
+            <label>Nome</label>
+
             <input
-                type="text"
                 id="usernamePrincipale"
-                placeholder="Nome"
+                type="text"
+                placeholder="Inserisci il nome"
             >
+
+            <label>Password</label>
 
             <input
-                type="password"
                 id="passwordPrincipale"
-                placeholder="Password"
+                type="password"
+                placeholder="Inserisci la password"
             >
 
-            <button class="main-button" onclick="loginPrincipale()">
+            <button
+                class="primary-button"
+                onclick="loginPrincipale()"
+            >
                 ACCEDI
             </button>
 
-            <button class="back-button"
-                    onclick="tornaAllaSceltaSede()">
+            <button
+                class="secondary-button"
+                onclick="tornaAlleSedi()"
+            >
                 ← Torna alla scelta sede
             </button>
 
-            <p id="principaleError" class="error"></p>
+            <div id="principaleError" class="error"></div>
 
         </div>
 
@@ -169,29 +226,36 @@
 </section>
 
 
-<!-- =========================
-     4. DASHBOARD
-========================= -->
+<!-- ==================================================
+     DASHBOARD
+================================================== -->
 
 <section id="dashboardPage" style="display:none;">
 
-    <header>
+    <header class="topbar">
 
-        <div>
+        <div class="topbar-brand">
 
-            <h1>🍝 Pasta Fresca La Casereccia</h1>
+            <div class="topbar-logo">🍝</div>
 
-            <p id="sedeNome">
-                Gestionale Aziendale
-            </p>
+            <div>
+
+                <strong>La Casereccia</strong>
+
+                <span id="sedeNome">
+                    Gestionale
+                </span>
+
+            </div>
 
         </div>
 
+
         <button
             class="back-button"
-            onclick="tornaAllaSceltaSede()"
+            onclick="tornaAlleSedi()"
         >
-            ← Torna alla scelta sede
+            ← Cambia sede
         </button>
 
     </header>
@@ -199,101 +263,300 @@
 
     <main class="dashboard">
 
-        <h2 id="dashboardTitolo">
-            Dashboard
-        </h2>
+        <div class="dashboard-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    GESTIONALE AZIENDALE
+                </span>
+
+                <h1 id="dashboardTitolo">
+                    Dashboard
+                </h1>
+
+                <p id="dashboardDescrizione">
+                    Gestione della sede
+                </p>
+
+            </div>
+
+        </div>
 
 
-        <div class="cards">
+        <div class="dashboard-grid">
+
 
             <!-- MAGAZZINO -->
 
-            <div class="card">
-                <h2>📦 Magazzino</h2>
+            <button
+                class="module-card"
+                onclick="apriModulo('magazzino')"
+            >
 
-                <p id="magazzinoText">
-                    Gestione magazzino
-                </p>
-            </div>
+                <div class="module-icon">📦</div>
+
+                <div class="module-text">
+
+                    <h3>Magazzino</h3>
+
+                    <p id="magazzinoText">
+                        Gestione delle scorte
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
 
 
             <!-- ORDINI -->
 
-            <div class="card">
-                <h2>🧾 Ordini</h2>
+            <button
+                class="module-card"
+                onclick="apriModulo('ordini')"
+            >
 
-                <p id="ordiniText">
-                    Gestione ordini
-                </p>
-            </div>
+                <div class="module-icon">🧾</div>
+
+                <div class="module-text">
+
+                    <h3>Ordini</h3>
+
+                    <p id="ordiniText">
+                        Gestione degli ordini
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
 
 
             <!-- CATALOGO -->
 
-            <div class="card">
-                <h2>🍝 Catalogo prodotti</h2>
+            <button
+                class="module-card"
+                onclick="apriModulo('catalogo')"
+            >
 
-                <p id="catalogoText">
-                    Anagrafica prodotti
-                </p>
-            </div>
+                <div class="module-icon">🍝</div>
+
+                <div class="module-text">
+
+                    <h3>Catalogo prodotti</h3>
+
+                    <p>
+                        Anagrafica prodotti aziendale
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
 
 
             <!-- PRODUZIONE -->
 
-            <div class="card">
-                <h2>🏭 Produzione</h2>
+            <button
+                class="module-card"
+                onclick="apriModulo('produzione')"
+            >
 
-                <p id="produzioneText">
-                    Gestione produzione
-                </p>
-            </div>
+                <div class="module-icon">🏭</div>
+
+                <div class="module-text">
+
+                    <h3>Produzione</h3>
+
+                    <p>
+                        Produzione e lotti
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
 
 
             <!-- SCADENZE -->
 
-            <div class="card alert">
-                <h2>🟠 Scadenze</h2>
+            <button
+                class="module-card warning"
+                onclick="apriModulo('scadenze')"
+            >
 
-                <p id="scadenzeText">
-                    Controllo scadenze
-                </p>
-            </div>
+                <div class="module-icon">🟠</div>
+
+                <div class="module-text">
+
+                    <h3>Scadenze</h3>
+
+                    <p id="scadenzeText">
+                        Controllo delle scadenze
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
 
 
             <!-- TEMPERATURE -->
 
-            <div class="card">
-                <h2>🌡️ Temperature</h2>
+            <button
+                class="module-card"
+                onclick="apriModulo('temperature')"
+            >
 
-                <p id="temperatureText">
-                    Controllo temperature
-                </p>
-            </div>
+                <div class="module-icon">🌡️</div>
+
+                <div class="module-text">
+
+                    <h3>Temperature</h3>
+
+                    <p id="temperatureText">
+                        Registrazione temperature
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
 
 
             <!-- PULIZIE -->
 
-            <div class="card">
-                <h2>🧹 Pulizie</h2>
+            <button
+                class="module-card"
+                onclick="apriModulo('pulizie')"
+            >
 
-                <p id="pulizieText">
-                    Controllo pulizie
-                </p>
-            </div>
+                <div class="module-icon">🧹</div>
+
+                <div class="module-text">
+
+                    <h3>Pulizie</h3>
+
+                    <p id="pulizieText">
+                        Controllo pulizie
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
 
 
             <!-- STORICO -->
 
-            <div class="card" id="storicoCard">
+            <button
+                class="module-card"
+                onclick="apriModulo('storico')"
+            >
 
-                <h2>📋 Storico movimenti</h2>
+                <div class="module-icon">📋</div>
 
-                <p id="storicoText">
-                    Movimenti di magazzino
+                <div class="module-text">
+
+                    <h3>Storico movimenti</h3>
+
+                    <p id="storicoText">
+                        Movimenti di magazzino
+                    </p>
+
+                </div>
+
+                <span class="module-arrow">→</span>
+
+            </button>
+
+        </div>
+
+    </main>
+
+</section>
+
+
+<!-- ==================================================
+     MODULO TEMPORANEO
+================================================== -->
+
+<section id="modulePage" class="module-page" style="display:none;">
+
+    <header class="topbar">
+
+        <div class="topbar-brand">
+
+            <div class="topbar-logo">🍝</div>
+
+            <div>
+
+                <strong>La Casereccia</strong>
+
+                <span id="moduleSede">
+                    Gestionale
+                </span>
+
+            </div>
+
+        </div>
+
+        <button
+            class="back-button"
+            onclick="tornaDashboard()"
+        >
+            ← Torna al gestionale
+        </button>
+
+    </header>
+
+
+    <main class="module-container">
+
+        <div class="module-header">
+
+            <div class="module-big-icon" id="moduleIcon">
+                📦
+            </div>
+
+            <div>
+
+                <span class="eyebrow">
+                    LA CASERECCIA
+                </span>
+
+                <h1 id="moduleTitle">
+                    Modulo
+                </h1>
+
+                <p id="moduleDescription">
+                    Sezione gestionale
                 </p>
 
             </div>
+
+        </div>
+
+
+        <div class="module-placeholder">
+
+            <div class="placeholder-icon">
+                ⚙️
+            </div>
+
+            <h2>Sezione in costruzione</h2>
+
+            <p id="placeholderText">
+                Questa sezione verrà collegata al database.
+            </p>
 
         </div>
 
@@ -304,17 +567,24 @@
 
 <script>
 
-/* =========================
+/* ==================================================
+   DATI
+================================================== */
+
+let sedeAttuale = "";
+
+
+/* ==================================================
    LOGIN GENERALE
-========================= */
+================================================== */
 
 function loginGenerale() {
 
     const username =
-        document.getElementById("username").value;
+        document.getElementById("username").value.trim();
 
     const password =
-        document.getElementById("password").value;
+        document.getElementById("password").value.trim();
 
     const error =
         document.getElementById("loginError");
@@ -338,9 +608,9 @@ function loginGenerale() {
 }
 
 
-/* =========================
-   ACCESSO SEDE PRINCIPALE
-========================= */
+/* ==================================================
+   LOGIN SEDE PRINCIPALE
+================================================== */
 
 function richiediAccessoPrincipale() {
 
@@ -351,17 +621,13 @@ function richiediAccessoPrincipale() {
 }
 
 
-/* =========================
-   LOGIN SEDE PRINCIPALE
-========================= */
-
 function loginPrincipale() {
 
     const username =
-        document.getElementById("usernamePrincipale").value;
+        document.getElementById("usernamePrincipale").value.trim();
 
     const password =
-        document.getElementById("passwordPrincipale").value;
+        document.getElementById("passwordPrincipale").value.trim();
 
     const error =
         document.getElementById("principaleError");
@@ -383,11 +649,13 @@ function loginPrincipale() {
 }
 
 
-/* =========================
+/* ==================================================
    APERTURA SEDE
-========================= */
+================================================== */
 
 function apriSede(sede) {
+
+    sedeAttuale = sede;
 
     document.getElementById("sediPage").style.display = "none";
 
@@ -402,32 +670,9 @@ function apriSede(sede) {
     const titolo =
         document.getElementById("dashboardTitolo");
 
-    const magazzino =
-        document.getElementById("magazzinoText");
+    const descrizione =
+        document.getElementById("dashboardDescrizione");
 
-    const ordini =
-        document.getElementById("ordiniText");
-
-    const catalogo =
-        document.getElementById("catalogoText");
-
-    const produzione =
-        document.getElementById("produzioneText");
-
-    const scadenze =
-        document.getElementById("scadenzeText");
-
-    const temperature =
-        document.getElementById("temperatureText");
-
-    const pulizie =
-        document.getElementById("pulizieText");
-
-    const storico =
-        document.getElementById("storicoText");
-
-
-    /* SEDE PRINCIPALE */
 
     if (sede === "principale") {
 
@@ -437,34 +682,11 @@ function apriSede(sede) {
         titolo.textContent =
             "Controllo generale azienda";
 
-        magazzino.textContent =
-            "Centrale + Senigallia + Marotta";
-
-        ordini.textContent =
-            "Ordini di Senigallia e Marotta";
-
-        catalogo.textContent =
-            "Catalogo prodotti aziendale";
-
-        produzione.textContent =
-            "Produzione aziendale";
-
-        scadenze.textContent =
-            "Scadenze di tutte le sedi";
-
-        temperature.textContent =
-            "Temperature di tutte le sedi";
-
-        pulizie.textContent =
-            "Pulizie di tutte le sedi";
-
-        storico.textContent =
-            "Movimenti di tutti i magazzini";
+        descrizione.textContent =
+            "Gestione completa di produzione, magazzini e punti vendita";
 
     }
 
-
-    /* SENIGALLIA */
 
     if (sede === "senigallia") {
 
@@ -474,34 +696,11 @@ function apriSede(sede) {
         titolo.textContent =
             "Gestionale Senigallia";
 
-        magazzino.textContent =
-            "Magazzino Senigallia";
-
-        ordini.textContent =
-            "Ordini Senigallia";
-
-        catalogo.textContent =
-            "Catalogo prodotti";
-
-        produzione.textContent =
-            "Produzione Senigallia";
-
-        scadenze.textContent =
-            "Scadenze Senigallia";
-
-        temperature.textContent =
-            "Temperature Senigallia";
-
-        pulizie.textContent =
-            "Pulizie Senigallia";
-
-        storico.textContent =
-            "Movimenti magazzino Senigallia";
+        descrizione.textContent =
+            "Gestione del punto vendita di Senigallia";
 
     }
 
-
-    /* MAROTTA */
 
     if (sede === "marotta") {
 
@@ -511,42 +710,141 @@ function apriSede(sede) {
         titolo.textContent =
             "Gestionale Marotta";
 
-        magazzino.textContent =
-            "Magazzino Marotta";
-
-        ordini.textContent =
-            "Ordini Marotta";
-
-        catalogo.textContent =
-            "Catalogo prodotti";
-
-        produzione.textContent =
-            "Produzione Marotta";
-
-        scadenze.textContent =
-            "Scadenze Marotta";
-
-        temperature.textContent =
-            "Temperature Marotta";
-
-        pulizie.textContent =
-            "Pulizie Marotta";
-
-        storico.textContent =
-            "Movimenti magazzino Marotta";
+        descrizione.textContent =
+            "Gestione del punto vendita di Marotta";
 
     }
 
 }
 
 
-/* =========================
-   TORNA ALLA SCELTA SEDE
-========================= */
+/* ==================================================
+   APERTURA MODULI
+================================================== */
 
-function tornaAllaSceltaSede() {
+function apriModulo(modulo) {
 
     document.getElementById("dashboardPage").style.display = "none";
+
+    document.getElementById("modulePage").style.display = "block";
+
+
+    const dati = {
+
+        magazzino: {
+            icon: "📦",
+            title: "Magazzino",
+            description: "Gestione prodotti e scorte",
+            text: "Qui gestiremo prodotti, quantità, fresco, scongelato, lotti e movimenti."
+        },
+
+        ordini: {
+            icon: "🧾",
+            title: "Ordini",
+            description: "Gestione degli ordini dei punti vendita",
+            text: "Qui arriveranno gli ordini di Senigallia e Marotta e verranno gestiti dalla sede principale."
+        },
+
+        catalogo: {
+            icon: "🍝",
+            title: "Catalogo prodotti",
+            description: "Anagrafica generale dei prodotti",
+            text: "Qui inseriremo e gestiremo tutti i prodotti dell'azienda."
+        },
+
+        produzione: {
+            icon: "🏭",
+            title: "Produzione",
+            description: "Produzione e gestione dei lotti",
+            text: "Qui registreremo la produzione giornaliera e creeremo automaticamente i lotti."
+        },
+
+        scadenze: {
+            icon: "🟠",
+            title: "Scadenze",
+            description: "Controllo automatico delle scadenze",
+            text: "Il sistema evidenzierà le scadenze del giorno successivo e quelle del giorno stesso."
+        },
+
+        temperature: {
+            icon: "🌡️",
+            title: "Temperature",
+            description: "Controllo delle temperature",
+            text: "Qui registreremo e controlleremo automaticamente le temperature."
+        },
+
+        pulizie: {
+            icon: "🧹",
+            title: "Pulizie",
+            description: "Controllo delle pulizie",
+            text: "Qui verranno gestite le pulizie e gli aggiornamenti giornalieri."
+        },
+
+        storico: {
+            icon: "📋",
+            title: "Storico movimenti",
+            description: "Storico dei movimenti",
+            text: "Qui conserveremo lo storico di produzione, trasferimenti e movimenti di magazzino."
+        }
+
+    };
+
+
+    const info = dati[modulo];
+
+
+    document.getElementById("moduleIcon").textContent =
+        info.icon;
+
+    document.getElementById("moduleTitle").textContent =
+        info.title;
+
+    document.getElementById("moduleDescription").textContent =
+        info.description;
+
+    document.getElementById("placeholderText").textContent =
+        info.text;
+
+    document.getElementById("moduleSede").textContent =
+        nomeSede(sedeAttuale);
+
+}
+
+
+function nomeSede(sede) {
+
+    if (sede === "principale")
+        return "🏢 Sede Principale";
+
+    if (sede === "senigallia")
+        return "📍 Senigallia";
+
+    if (sede === "marotta")
+        return "📍 Marotta";
+
+    return "Gestionale";
+
+}
+
+
+/* ==================================================
+   NAVIGAZIONE
+================================================== */
+
+function tornaDashboard() {
+
+    document.getElementById("modulePage").style.display = "none";
+
+    document.getElementById("dashboardPage").style.display = "block";
+
+}
+
+
+function tornaAlleSedi() {
+
+    document.getElementById("dashboardPage").style.display = "none";
+
+    document.getElementById("modulePage").style.display = "none";
 
     document.getElementById("loginPrincipalePage").style.display = "none";
 
