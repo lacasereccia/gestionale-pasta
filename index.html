@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gestionale - La Casereccia</title>
+    <title>Gestionale - Pasta Fresca La Casereccia</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="login-page">
+    <!-- SCHERMATA DI LOGIN -->
+    <div id="loginPage" class="login-page">
 
         <div class="login-box">
 
@@ -21,71 +22,293 @@
                 Gestionale Aziendale
             </p>
 
-            <h2>Dove vuoi accedere?</h2>
+            <h2>Accesso al gestionale</h2>
 
-            <button onclick="accessoPrincipale()">
-                🏢 Sede Principale
+            <input
+                type="text"
+                id="username"
+                placeholder="Nome"
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+            >
+
+            <button onclick="login()">
+                ACCEDI
             </button>
 
-            <button onclick="accessoSede('senigallia')">
-                📍 Senigallia
-            </button>
-
-            <button onclick="accessoSede('marotta')">
-                📍 Marotta
-            </button>
-
-            <div id="loginPrincipale" class="login-form">
-
-                <h3>Accesso Sede Principale</h3>
-
-                <input
-                    type="text"
-                    id="username"
-                    placeholder="Nome utente"
-                >
-
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                >
-
-                <button onclick="loginPrincipale()">
-                    ACCEDI
-                </button>
-
-                <p id="errore"></p>
-
-            </div>
+            <p id="loginError"></p>
 
         </div>
 
     </div>
 
+
+    <!-- SCELTA DELLA SEDE -->
+    <div id="sediPage" class="login-page" style="display: none;">
+
+        <div class="login-box">
+
+            <h1>🍝 Pasta Fresca La Casereccia</h1>
+
+            <p class="subtitle">
+                Gestionale Aziendale
+            </p>
+
+            <h2>Scegli la sede</h2>
+
+            <button onclick="apriSede('principale')">
+                🏢 Sede Principale
+            </button>
+
+            <button onclick="apriSede('senigallia')">
+                📍 Senigallia
+            </button>
+
+            <button onclick="apriSede('marotta')">
+                📍 Marotta
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+    <div id="dashboardPage" style="display: none;">
+
+        <header>
+
+            <h1>🍝 Pasta Fresca La Casereccia</h1>
+
+            <p id="sedeNome">
+                Gestionale Aziendale
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <h2 id="dashboardTitolo">
+                Dashboard
+            </h2>
+
+
+            <div class="cards">
+
+                <!-- MAGAZZINO -->
+                <div class="card">
+                    <h2>📦 Magazzino</h2>
+                    <p id="magazzinoText">
+                        Gestione magazzino
+                    </p>
+                </div>
+
+
+                <!-- ORDINI -->
+                <div class="card">
+                    <h2>🧾 Ordini</h2>
+                    <p id="ordiniText">
+                        Gestione ordini
+                    </p>
+                </div>
+
+
+                <!-- SCADENZE -->
+                <div class="card alert">
+                    <h2>🟠 Scadenze</h2>
+                    <p id="scadenzeText">
+                        Controllo scadenze
+                    </p>
+                </div>
+
+
+                <!-- TEMPERATURE -->
+                <div class="card">
+                    <h2>🌡️ Temperature</h2>
+                    <p id="temperatureText">
+                        Controllo temperature
+                    </p>
+                </div>
+
+
+                <!-- PULIZIE -->
+                <div class="card">
+                    <h2>🧹 Pulizie</h2>
+                    <p id="pulizieText">
+                        Controllo pulizie
+                    </p>
+                </div>
+
+
+                <!-- PRODUZIONE -->
+                <div class="card" id="produzioneCard">
+                    <h2>🏭 Produzione</h2>
+                    <p>
+                        Gestione produzione
+                    </p>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
     <script>
 
-        function accessoPrincipale() {
+        /*
+         * LOGIN DI PROVA
+         *
+         * Nome: pasta
+         * Password: pasta
+         */
 
-            document.getElementById("loginPrincipale").style.display = "block";
+        function login() {
+
+            const username =
+                document.getElementById("username").value;
+
+            const password =
+                document.getElementById("password").value;
+
+            const error =
+                document.getElementById("loginError");
+
+
+            if (username === "pasta" && password === "pasta") {
+
+                document.getElementById("loginPage").style.display = "none";
+
+                document.getElementById("sediPage").style.display = "flex";
+
+                error.textContent = "";
+
+            } else {
+
+                error.textContent =
+                    "Nome o password non corretti.";
+
+            }
 
         }
 
-        function accessoSede(sede) {
+
+        /*
+         * APERTURA DELLA SEDE
+         */
+
+        function apriSede(sede) {
+
+            document.getElementById("sediPage").style.display = "none";
+
+            document.getElementById("dashboardPage").style.display = "block";
+
+
+            const sedeNome =
+                document.getElementById("sedeNome");
+
+            const titolo =
+                document.getElementById("dashboardTitolo");
+
+
+            const magazzino =
+                document.getElementById("magazzinoText");
+
+            const ordini =
+                document.getElementById("ordiniText");
+
+            const scadenze =
+                document.getElementById("scadenzeText");
+
+            const temperature =
+                document.getElementById("temperatureText");
+
+            const pulizie =
+                document.getElementById("pulizieText");
+
+
+            if (sede === "principale") {
+
+                sedeNome.textContent =
+                    "🏢 Sede Principale";
+
+                titolo.textContent =
+                    "Controllo generale azienda";
+
+                magazzino.textContent =
+                    "Centrale + Senigallia + Marotta";
+
+                ordini.textContent =
+                    "Ordini di Senigallia e Marotta";
+
+                scadenze.textContent =
+                    "Scadenze di tutte le sedi";
+
+                temperature.textContent =
+                    "Temperature di tutte le sedi";
+
+                pulizie.textContent =
+                    "Pulizie di tutte le sedi";
+
+            }
+
 
             if (sede === "senigallia") {
-                alert("Accesso a Senigallia");
+
+                sedeNome.textContent =
+                    "📍 Senigallia";
+
+                titolo.textContent =
+                    "Gestionale Senigallia";
+
+                magazzino.textContent =
+                    "Magazzino Senigallia";
+
+                ordini.textContent =
+                    "Ordini Senigallia";
+
+                scadenze.textContent =
+                    "Scadenze Senigallia";
+
+                temperature.textContent =
+                    "Temperature Senigallia";
+
+                pulizie.textContent =
+                    "Pulizie Senigallia";
+
             }
+
 
             if (sede === "marotta") {
-                alert("Accesso a Marotta");
+
+                sedeNome.textContent =
+                    "📍 Marotta";
+
+                titolo.textContent =
+                    "Gestionale Marotta";
+
+                magazzino.textContent =
+                    "Magazzino Marotta";
+
+                ordini.textContent =
+                    "Ordini Marotta";
+
+                scadenze.textContent =
+                    "Scadenze Marotta";
+
+                temperature.textContent =
+                    "Temperature Marotta";
+
+                pulizie.textContent =
+                    "Pulizie Marotta";
+
             }
-
-        }
-
-        function loginPrincipale() {
-
-            alert("Il sistema di autenticazione verrà collegato al database.");
 
         }
 
