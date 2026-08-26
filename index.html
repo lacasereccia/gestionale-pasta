@@ -9,79 +9,70 @@
 
 <body>
 
-<!-- =========================
-     LOGIN GENERALE
-========================= -->
+<!-- =====================================================
+     LOGIN
+===================================================== -->
 
-<section id="loginPage" class="page login-page">
+<section id="loginPage" class="screen login-screen">
 
-    <div class="login-container">
+    <div class="login-card">
 
-        <div class="brand">
-            <div class="brand-icon">🍝</div>
-            <h1>La Casereccia</h1>
-            <span>PASTA FRESCA</span>
-        </div>
+        <div class="logo-circle">🍝</div>
 
-        <div class="login-box">
+        <div class="brand-title">LA CASERECCIA</div>
+        <div class="brand-subtitle">GESTIONALE AZIENDALE</div>
 
-            <h2>Benvenuto</h2>
-            <p>Accedi al gestionale aziendale</p>
+        <h2>Benvenuto</h2>
+        <p>Accedi al gestionale</p>
 
-            <label>Nome</label>
-            <input id="username" type="text" placeholder="Nome">
+        <label>Nome</label>
+        <input id="loginUser" type="text" placeholder="Inserisci nome">
 
-            <label>Password</label>
-            <input id="password" type="password" placeholder="Password">
+        <label>Password</label>
+        <input id="loginPass" type="password" placeholder="Inserisci password">
 
-            <button class="primary-button" onclick="loginGenerale()">
-                ACCEDI
-            </button>
+        <button class="btn btn-primary" onclick="login()">ACCEDI</button>
 
-            <div id="loginError" class="error"></div>
+        <div id="loginError" class="error-message"></div>
 
-        </div>
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SCELTA SEDE
-========================= -->
+===================================================== -->
 
-<section id="sediPage" class="page" style="display:none;">
+<section id="sedePage" class="screen hidden">
 
-    <div class="selection-container">
+    <div class="page-container">
 
-        <div class="page-brand">
-
-            <div class="small-logo">🍝</div>
+        <div class="top-brand">
+            <div class="mini-logo">🍝</div>
 
             <div>
-                <h1>La Casereccia</h1>
-                <span>Gestionale Aziendale</span>
+                <strong>LA CASERECCIA</strong>
+                <span>Gestionale aziendale</span>
             </div>
-
         </div>
 
-        <div class="selection-title">
-
-            <h2>Seleziona la sede</h2>
-            <p>Scegli il punto da gestire</p>
-
+        <div class="welcome-title">
+            <span class="eyebrow">GESTIONALE</span>
+            <h1>Scegli la sede</h1>
+            <p>Seleziona il punto che vuoi gestire</p>
         </div>
 
         <div class="sede-grid">
 
-            <button class="sede-card centrale"
-                    onclick="richiediAccessoPrincipale()">
+            <button class="sede-card sede-main"
+                    onclick="openMainLogin()">
 
-                <div class="sede-card-icon">🏢</div>
+                <div class="sede-icon">🏢</div>
 
-                <div class="sede-card-content">
-                    <h3>Sede Principale</h3>
-                    <p>Controllo e gestione completa</p>
+                <div>
+                    <h2>Sede Principale</h2>
+                    <p>Controllo completo dell'azienda</p>
                 </div>
 
                 <span class="arrow">→</span>
@@ -90,12 +81,12 @@
 
 
             <button class="sede-card"
-                    onclick="apriSede('senigallia')">
+                    onclick="openSede('senigallia')">
 
-                <div class="sede-card-icon">📍</div>
+                <div class="sede-icon">📍</div>
 
-                <div class="sede-card-content">
-                    <h3>Senigallia</h3>
+                <div>
+                    <h2>Senigallia</h2>
                     <p>Gestione punto vendita</p>
                 </div>
 
@@ -105,12 +96,12 @@
 
 
             <button class="sede-card"
-                    onclick="apriSede('marotta')">
+                    onclick="openSede('marotta')">
 
-                <div class="sede-card-icon">📍</div>
+                <div class="sede-icon">📍</div>
 
-                <div class="sede-card-content">
-                    <h3>Marotta</h3>
+                <div>
+                    <h2>Marotta</h2>
                     <p>Gestione punto vendita</p>
                 </div>
 
@@ -125,128 +116,86 @@
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      LOGIN SEDE PRINCIPALE
-========================= -->
+===================================================== -->
 
-<section id="loginPrincipalePage"
-         class="page login-page"
-         style="display:none;">
+<section id="mainLoginPage" class="screen login-screen hidden">
 
-    <div class="login-container">
+    <div class="login-card">
 
-        <div class="brand">
+        <div class="logo-circle">🏢</div>
 
-            <div class="brand-icon">🏢</div>
+        <div class="brand-title">SEDE PRINCIPALE</div>
+        <div class="brand-subtitle">ACCESSO RISERVATO</div>
 
-            <h1>Sede Principale</h1>
+        <h2>Accesso amministratore</h2>
+        <p>Inserisci le credenziali della sede principale</p>
 
-            <span>ACCESSO RISERVATO</span>
+        <label>Nome</label>
+        <input id="mainUser" type="text" placeholder="Nome">
 
-        </div>
+        <label>Password</label>
+        <input id="mainPass" type="password" placeholder="Password">
 
+        <button class="btn btn-primary"
+                onclick="loginMain()">
+            ACCEDI
+        </button>
 
-        <div class="login-box">
+        <button class="btn btn-secondary"
+                onclick="backToSedi()">
+            ← TORNA ALLA SCELTA SEDE
+        </button>
 
-            <h2>Accesso riservato</h2>
-
-            <p>Gestione completa azienda</p>
-
-            <label>Nome</label>
-
-            <input id="usernamePrincipale"
-                   type="text"
-                   placeholder="Nome">
-
-
-            <label>Password</label>
-
-            <input id="passwordPrincipale"
-                   type="password"
-                   placeholder="Password">
-
-
-            <button class="primary-button"
-                    onclick="loginPrincipale()">
-
-                ACCEDI
-
-            </button>
-
-
-            <button class="secondary-button"
-                    onclick="tornaAlleSedi()">
-
-                ← Torna alla scelta sede
-
-            </button>
-
-
-            <div id="principaleError"
-                 class="error">
-            </div>
-
-        </div>
+        <div id="mainError" class="error-message"></div>
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DASHBOARD
-========================= -->
+===================================================== -->
 
-<section id="dashboardPage"
-         style="display:none;">
+<section id="dashboardPage" class="hidden">
 
     <header class="topbar">
 
-        <div class="topbar-brand">
+        <div class="top-brand">
 
-            <div class="topbar-logo">🍝</div>
+            <div class="top-logo">🍝</div>
 
             <div>
-
-                <strong>La Casereccia</strong>
-
-                <span id="sedeNome">
-                    Gestionale
-                </span>
-
+                <strong>LA CASERECCIA</strong>
+                <span id="currentSede">Gestionale</span>
             </div>
 
         </div>
 
-
-        <button class="back-button"
-                onclick="tornaAlleSedi()">
-
-            ← Cambia sede
-
+        <button class="top-button"
+                onclick="backToSedi()">
+            ← CAMBIA SEDE
         </button>
 
     </header>
 
 
-    <main class="dashboard">
+    <main class="dashboard-container">
 
         <div class="dashboard-heading">
 
             <div>
+                <span class="eyebrow">GESTIONALE AZIENDALE</span>
 
-                <span class="eyebrow">
-                    GESTIONALE AZIENDALE
-                </span>
-
-                <h1 id="dashboardTitolo">
+                <h1 id="dashboardTitle">
                     Dashboard
                 </h1>
 
-                <p id="dashboardDescrizione">
+                <p id="dashboardSubtitle">
                     Gestione della sede
                 </p>
-
             </div>
 
         </div>
@@ -256,145 +205,121 @@
 
 
             <button class="module-card"
-                    onclick="apriModulo('magazzino')">
-
-                <div class="module-icon">📦</div>
-
-                <div class="module-text">
-
-                    <h3>Magazzino</h3>
-
-                    <p>Gestione delle scorte</p>
-
-                </div>
-
-                <span class="module-arrow">→</span>
-
-            </button>
-
-
-            <button class="module-card"
-                    onclick="apriModulo('ordini')">
+                    onclick="openModule('ordini')">
 
                 <div class="module-icon">🧾</div>
 
-                <div class="module-text">
-
+                <div class="module-content">
                     <h3>Ordini</h3>
-
-                    <p>Gestione degli ordini</p>
-
+                    <p>Ordini e calendario</p>
                 </div>
 
-                <span class="module-arrow">→</span>
+                <span>→</span>
 
             </button>
 
 
             <button class="module-card"
-                    onclick="apriModulo('catalogo')">
+                    onclick="openModule('magazzino')">
+
+                <div class="module-icon">📦</div>
+
+                <div class="module-content">
+                    <h3>Magazzino</h3>
+                    <p>Scorte e movimenti</p>
+                </div>
+
+                <span>→</span>
+
+            </button>
+
+
+            <button class="module-card"
+                    onclick="openModule('catalogo')">
 
                 <div class="module-icon">🍝</div>
 
-                <div class="module-text">
-
+                <div class="module-content">
                     <h3>Catalogo prodotti</h3>
-
-                    <p>Gestione prodotti aziendali</p>
-
+                    <p>Prodotti aziendali</p>
                 </div>
 
-                <span class="module-arrow">→</span>
+                <span>→</span>
 
             </button>
 
 
             <button class="module-card"
-                    onclick="apriModulo('produzione')">
+                    onclick="openModule('produzione')">
 
                 <div class="module-icon">🏭</div>
 
-                <div class="module-text">
-
+                <div class="module-content">
                     <h3>Produzione</h3>
-
                     <p>Produzione e lotti</p>
-
                 </div>
 
-                <span class="module-arrow">→</span>
+                <span>→</span>
 
             </button>
 
 
-            <button class="module-card warning"
-                    onclick="apriModulo('scadenze')">
+            <button class="module-card"
+                    onclick="openModule('scadenze')">
 
                 <div class="module-icon">🟠</div>
 
-                <div class="module-text">
-
+                <div class="module-content">
                     <h3>Scadenze</h3>
-
                     <p>Controllo automatico</p>
-
                 </div>
 
-                <span class="module-arrow">→</span>
+                <span>→</span>
 
             </button>
 
 
             <button class="module-card"
-                    onclick="apriModulo('temperature')">
+                    onclick="openModule('temperature')">
 
                 <div class="module-icon">🌡️</div>
 
-                <div class="module-text">
-
+                <div class="module-content">
                     <h3>Temperature</h3>
-
-                    <p>Controllo temperature</p>
-
+                    <p>Frigoriferi e congelatori</p>
                 </div>
 
-                <span class="module-arrow">→</span>
+                <span>→</span>
 
             </button>
 
 
             <button class="module-card"
-                    onclick="apriModulo('pulizie')">
+                    onclick="openModule('pulizie')">
 
                 <div class="module-icon">🧹</div>
 
-                <div class="module-text">
-
+                <div class="module-content">
                     <h3>Pulizie</h3>
-
-                    <p>Controllo pulizie</p>
-
+                    <p>Controllo giornaliero</p>
                 </div>
 
-                <span class="module-arrow">→</span>
+                <span>→</span>
 
             </button>
 
 
             <button class="module-card"
-                    onclick="apriModulo('storico')">
+                    onclick="openModule('storico')">
 
                 <div class="module-icon">📋</div>
 
-                <div class="module-text">
-
-                    <h3>Storico movimenti</h3>
-
-                    <p>Movimenti di magazzino</p>
-
+                <div class="module-content">
+                    <h3>Storico</h3>
+                    <p>Movimenti e attività</p>
                 </div>
 
-                <span class="module-arrow">→</span>
+                <span>→</span>
 
             </button>
 
@@ -405,38 +330,28 @@
 </section>
 
 
-<!-- =========================
-     MODULI
-========================= -->
+<!-- =====================================================
+     PAGINA MODULI
+===================================================== -->
 
-<section id="modulePage"
-         class="module-page"
-         style="display:none;">
+<section id="modulePage" class="hidden">
 
     <header class="topbar">
 
-        <div class="topbar-brand">
+        <div class="top-brand">
 
-            <div class="topbar-logo">🍝</div>
+            <div class="top-logo">🍝</div>
 
             <div>
-
-                <strong>La Casereccia</strong>
-
-                <span id="moduleSede">
-                    Gestionale
-                </span>
-
+                <strong>LA CASERECCIA</strong>
+                <span id="moduleSede">Gestionale</span>
             </div>
 
         </div>
 
-
-        <button class="back-button"
-                onclick="tornaDashboard()">
-
-            ← Torna al gestionale
-
+        <button class="top-button"
+                onclick="backToDashboard()">
+            ← TORNA AL GESTIONALE
         </button>
 
     </header>
@@ -444,214 +359,147 @@
 
     <main class="module-container">
 
-
         <div class="module-header">
 
-            <div class="module-big-icon"
+            <div class="module-header-icon"
                  id="moduleIcon">
-
-                🍝
-
+                ⚙️
             </div>
 
             <div>
-
-                <span class="eyebrow">
-                    LA CASERECCIA
-                </span>
-
-                <h1 id="moduleTitle">
-                    Modulo
-                </h1>
-
-                <p id="moduleDescription">
-                    Sezione gestionale
-                </p>
-
+                <span class="eyebrow">LA CASERECCIA</span>
+                <h1 id="moduleTitle">Modulo</h1>
+                <p id="moduleDescription">Sezione gestionale</p>
             </div>
 
         </div>
 
 
-        <!-- =========================
+        <!-- =================================================
              CATALOGO
-        ========================= -->
+        ================================================= -->
 
-        <div id="catalogoContent"
-             style="display:none;">
+        <div id="catalogoModule" class="module-content-area hidden">
 
-            <div class="catalogo-toolbar">
+            <div class="toolbar">
 
-                <input
-                    id="cercaProdotto"
-                    type="text"
-                    placeholder="🔎 Cerca prodotto..."
-                    oninput="mostraProdotti()"
-                >
+                <input id="searchProduct"
+                       type="text"
+                       placeholder="🔎 Cerca prodotto..."
+                       oninput="renderProducts()">
 
-
-                <button
-                    class="primary-button catalogo-button"
-                    onclick="mostraFormProdotto()">
-
+                <button class="btn btn-primary"
+                        onclick="newProduct()">
                     + NUOVO PRODOTTO
-
                 </button>
 
             </div>
 
 
-            <!-- FORM PRODOTTO -->
+            <div id="productForm"
+                 class="form-panel hidden">
 
-            <div id="formProdotto"
-                 class="product-form"
-                 style="display:none;">
-
-                <h2 id="titoloFormProdotto">
+                <h2 id="productFormTitle">
                     Nuovo prodotto
                 </h2>
 
-
-                <input id="idProdottoModifica"
-                       type="hidden">
+                <input id="productId" type="hidden">
 
 
-                <label>
-                    Nome prodotto
-                </label>
+                <div class="form-grid">
 
-                <input
-                    id="nomeProdotto"
-                    type="text"
-                    placeholder="Es. Cappelletti piccoli"
-                >
+                    <div>
+                        <label>Nome prodotto</label>
+                        <input id="productName"
+                               placeholder="Es. Cappelletti piccoli">
+                    </div>
 
 
-                <label>
-                    Codice prodotto
-                </label>
-
-                <input
-                    id="codiceProdotto"
-                    type="text"
-                    placeholder="Es. CAP001"
-                >
+                    <div>
+                        <label>Codice prodotto</label>
+                        <input id="productCode"
+                               placeholder="Es. CAP001">
+                    </div>
 
 
-                <label>
-                    Categoria
-                </label>
-
-                <input
-                    id="categoriaProdotto"
-                    type="text"
-                    placeholder="Es. Pasta ripiena"
-                >
+                    <div>
+                        <label>Categoria</label>
+                        <input id="productCategory"
+                               placeholder="Es. Pasta ripiena">
+                    </div>
 
 
-                <label>
-                    Gestione prodotto
-                </label>
+                    <div>
+                        <label>Gestione</label>
 
-                <select id="gestioneProdotto">
+                        <select id="productType">
 
-                    <option value="Fresco">
-                        Fresco
-                    </option>
+                            <option>Fresco</option>
+                            <option>Scongelato</option>
+                            <option>Fresco e Scongelato</option>
 
-                    <option value="Scongelato">
-                        Scongelato
-                    </option>
+                        </select>
 
-                    <option value="Fresco e Scongelato">
-                        Fresco e Scongelato
-                    </option>
-
-                </select>
+                    </div>
 
 
-                <label>
-                    Durata
-                </label>
+                    <div>
+                        <label>Durata (giorni)</label>
 
-                <div class="input-row">
+                        <input id="productDuration"
+                               type="number"
+                               min="1"
+                               placeholder="Es. 3">
 
-                    <input
-                        id="durataProdotto"
-                        type="number"
-                        min="1"
-                        placeholder="Numero"
-                    >
+                    </div>
 
-                    <span>
-                        giorni
-                    </span>
+
+                    <div>
+                        <label>Peso confezione (kg)</label>
+
+                        <input id="productWeight"
+                               type="number"
+                               step="0.01"
+                               placeholder="Es. 0.5">
+
+                    </div>
+
+
+                    <div>
+                        <label>Prezzo €/kg</label>
+
+                        <input id="productPrice"
+                               type="number"
+                               step="0.01"
+                               placeholder="Es. 12.50">
+
+                    </div>
 
                 </div>
 
 
-                <label>
-                    Peso confezione
-                </label>
+                <label>Ingredienti</label>
 
-                <input
-                    id="pesoProdotto"
-                    type="number"
-                    step="0.01"
-                    placeholder="Kg"
-                >
+                <textarea id="productIngredients"
+                          placeholder="Inserisci ingredienti"></textarea>
 
 
-                <label>
-                    Prezzo
-                </label>
+                <label>Allergeni</label>
 
-                <input
-                    id="prezzoProdotto"
-                    type="number"
-                    step="0.01"
-                    placeholder="€"
-                >
-
-
-                <label>
-                    Ingredienti
-                </label>
-
-                <textarea
-                    id="ingredientiProdotto"
-                    placeholder="Ingredienti">
-                </textarea>
-
-
-                <label>
-                    Allergeni
-                </label>
-
-                <textarea
-                    id="allergeniProdotto"
-                    placeholder="Allergeni">
-                </textarea>
+                <textarea id="productAllergens"
+                          placeholder="Inserisci allergeni"></textarea>
 
 
                 <div class="form-actions">
 
-                    <button
-                        id="salvaProdottoButton"
-                        class="primary-button"
-                        onclick="salvaProdotto()">
-
-                        SALVA PRODOTTO
-
+                    <button class="btn btn-primary"
+                            onclick="saveProduct()">
+                        💾 SALVA
                     </button>
 
-
-                    <button
-                        class="secondary-button"
-                        onclick="nascondiFormProdotto()">
-
+                    <button class="btn btn-secondary"
+                            onclick="closeProductForm()">
                         ANNULLA
-
                     </button>
 
                 </div>
@@ -659,31 +507,405 @@
             </div>
 
 
-            <div id="listaProdotti"
+            <div id="productList"
                  class="product-list">
             </div>
 
         </div>
 
 
-        <!-- MODULO GENERICO -->
+        <!-- =================================================
+             ORDINI
+        ================================================= -->
 
-        <div id="genericModule"
-             class="module-placeholder">
+        <div id="ordiniModule"
+             class="module-content-area hidden">
 
-            <div class="placeholder-icon">
-                ⚙️
+            <div class="order-top">
+
+                <button class="btn btn-primary"
+                        onclick="newOrder()">
+                    + NUOVO ORDINE
+                </button>
+
+                <div class="calendar-controls">
+
+                    <button onclick="changeMonth(-1)">‹</button>
+
+                    <select id="orderMonth"
+                            onchange="renderCalendar()">
+                    </select>
+
+                    <select id="orderYear"
+                            onchange="renderCalendar()">
+                    </select>
+
+                    <button onclick="changeMonth(1)">›</button>
+
+                </div>
+
             </div>
 
-            <h2>
-                Sezione in costruzione
-            </h2>
 
-            <p id="placeholderText">
-                Questa sezione verrà collegata al database.
-            </p>
+            <div id="calendar"
+                 class="calendar">
+            </div>
+
+
+            <div id="selectedDayOrders"
+                 class="selected-orders">
+
+                <div class="empty-box">
+                    📅 Seleziona un giorno per vedere gli ordini
+                </div>
+
+            </div>
+
+
+            <div id="orderForm"
+                 class="form-panel hidden">
+
+                <h2>Nuovo ordine</h2>
+
+                <div class="form-grid">
+
+                    <div>
+                        <label>Data ordine</label>
+                        <input id="orderDate" type="date">
+                    </div>
+
+                    <div>
+                        <label>Sede</label>
+
+                        <select id="orderSede">
+
+                            <option value="senigallia">
+                                Senigallia
+                            </option>
+
+                            <option value="marotta">
+                                Marotta
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div id="orderItems"></div>
+
+
+                <button class="btn btn-light"
+                        onclick="addOrderItem()">
+                    + AGGIUNGI PRODOTTO
+                </button>
+
+
+                <label>Note</label>
+
+                <textarea id="orderNotes"
+                          placeholder="Eventuali note"></textarea>
+
+
+                <div class="form-actions">
+
+                    <button class="btn btn-primary"
+                            onclick="saveOrder()">
+                        📤 INVIA ORDINE
+                    </button>
+
+                    <button class="btn btn-secondary"
+                            onclick="closeOrderForm()">
+                        ANNULLA
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
+
+
+        <!-- =================================================
+             MAGAZZINO
+        ================================================= -->
+
+        <div id="magazzinoModule"
+             class="module-content-area hidden">
+
+            <div class="info-banner">
+                📦 Il magazzino della sede
+                <strong id="warehouseName"></strong>
+                è separato dagli altri punti vendita.
+            </div>
+
+            <div id="warehouseList"
+                 class="warehouse-list">
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUZIONE
+        ================================================= -->
+
+        <div id="produzioneModule"
+             class="module-content-area hidden">
+
+            <div class="toolbar">
+
+                <button class="btn btn-primary"
+                        onclick="newProduction()">
+                    + NUOVA PRODUZIONE
+                </button>
+
+            </div>
+
+
+            <div id="productionForm"
+                 class="form-panel hidden">
+
+                <h2>Nuova produzione</h2>
+
+                <label>Data produzione</label>
+
+                <input id="productionDate"
+                       type="date">
+
+
+                <label>Prodotto</label>
+
+                <select id="productionProduct">
+                </select>
+
+
+                <label>Quantità (kg)</label>
+
+                <input id="productionQuantity"
+                       type="number"
+                       step="0.01">
+
+
+                <label>Tipo</label>
+
+                <select id="productionType">
+
+                    <option>Fresco</option>
+                    <option>Scongelato</option>
+
+                </select>
+
+
+                <div class="form-actions">
+
+                    <button class="btn btn-primary"
+                            onclick="saveProduction()">
+                        SALVA PRODUZIONE
+                    </button>
+
+                    <button class="btn btn-secondary"
+                            onclick="closeProductionForm()">
+                        ANNULLA
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="productionList"
+                 class="data-list">
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SCADENZE
+        ================================================= -->
+
+        <div id="scadenzeModule"
+             class="module-content-area hidden">
+
+            <div class="info-banner">
+                🟠 Il sistema evidenzia le scadenze imminenti.
+            </div>
+
+            <div id="expiryList"
+                 class="data-list">
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TEMPERATURE
+        ================================================= -->
+
+        <div id="temperatureModule"
+             class="module-content-area hidden">
+
+            <div class="form-panel">
+
+                <h2>Configurazione temperature</h2>
+
+                <div class="form-grid">
+
+                    <div>
+
+                        <label>Anno</label>
+
+                        <select id="tempYear">
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Mese</label>
+
+                        <select id="tempMonth">
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Numero frigoriferi</label>
+
+                        <input id="fridgeCount"
+                               type="number"
+                               min="0"
+                               value="2">
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Numero congelatori</label>
+
+                        <input id="freezerCount"
+                               type="number"
+                               min="0"
+                               value="1">
+
+                    </div>
+
+                </div>
+
+
+                <div class="reference-box">
+
+                    <strong>Riferimenti</strong>
+
+                    <p>
+                        Frigorifero: 0°C → +4°C
+                    </p>
+
+                    <p>
+                        Congelatore: -18°C → -15°C
+                    </p>
+
+                </div>
+
+
+                <button class="btn btn-primary"
+                        onclick="configureTemperatures()">
+                    GENERA CONFIGURAZIONE
+                </button>
+
+            </div>
+
+
+            <div id="temperatureEquipment"
+                 class="equipment-list">
+            </div>
+
+
+            <div class="temperature-actions">
+
+                <button class="btn btn-primary"
+                        onclick="generateTemperatureMonth()">
+                    GENERA DATI DEMO DEL MESE
+                </button>
+
+            </div>
+
+
+            <div id="temperatureTable"
+                 class="table-wrapper">
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PULIZIE
+        ================================================= -->
+
+        <div id="pulizieModule"
+             class="module-content-area hidden">
+
+            <div class="info-banner">
+                🧹 Checklist giornaliera delle pulizie.
+            </div>
+
+
+            <div class="form-panel">
+
+                <h2>Pulizie di oggi</h2>
+
+                <div id="cleaningToday">
+                </div>
+
+                <label>Note</label>
+
+                <textarea id="cleaningNotes"
+                          placeholder="Eventuali note"></textarea>
+
+
+                <button class="btn btn-primary"
+                        onclick="saveCleaning()">
+                    💾 SALVA GIORNATA
+                </button>
+
+            </div>
+
+
+            <div id="cleaningHistory"
+                 class="data-list">
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             STORICO
+        ================================================= -->
+
+        <div id="storicoModule"
+             class="module-content-area hidden">
+
+            <div class="toolbar">
+
+                <input id="historySearch"
+                       placeholder="🔎 Cerca nello storico..."
+                       oninput="renderHistory()">
+
+            </div>
+
+            <div id="historyList"
+                 class="data-list">
+            </div>
+
+        </div>
+
 
     </main>
 
@@ -692,43 +914,71 @@
 
 <script>
 
-/* =========================================
+/* =========================================================
    DATI
-========================================= */
+========================================================= */
 
-let sedeAttuale = "";
+let currentSede = "";
+let currentModule = "";
 
-let prodottoInModifica = null;
+let products =
+    JSON.parse(
+        localStorage.getItem("casereccia_products") || "[]"
+    );
 
-let prodotti = JSON.parse(
-    localStorage.getItem("prodottiCasereccia") || "[]"
-);
+let orders =
+    JSON.parse(
+        localStorage.getItem("casereccia_orders") || "[]"
+    );
+
+let production =
+    JSON.parse(
+        localStorage.getItem("casereccia_production") || "[]"
+    );
+
+let warehouse =
+    JSON.parse(
+        localStorage.getItem("casereccia_warehouse") || "{}"
+    );
+
+let temperatures =
+    JSON.parse(
+        localStorage.getItem("casereccia_temperatures") || "{}"
+    );
+
+let cleanings =
+    JSON.parse(
+        localStorage.getItem("casereccia_cleanings") || "{}"
+    );
+
+let history =
+    JSON.parse(
+        localStorage.getItem("casereccia_history") || "[]"
+    );
 
 
-/* =========================================
-   LOGIN GENERALE
-========================================= */
-
-function loginGenerale() {
-
-    const username =
-        document.getElementById("username").value.trim();
-
-    const password =
-        document.getElementById("password").value.trim();
+let calendarDate = new Date();
 
 
-    if (username === "pasta" &&
-        password === "pasta") {
+/* =========================================================
+   LOGIN
+========================================================= */
 
-        document.getElementById("loginPage").style.display =
-            "none";
+function login() {
 
-        document.getElementById("sediPage").style.display =
-            "flex";
+    const user =
+        document.getElementById("loginUser").value.trim();
 
-        document.getElementById("loginError").textContent =
-            "";
+    const pass =
+        document.getElementById("loginPass").value.trim();
+
+
+    if (user === "pasta" && pass === "pasta") {
+
+        hide("loginPage");
+        show("sedePage");
+
+        document.getElementById("loginError").textContent = "";
 
     } else {
 
@@ -740,41 +990,32 @@ function loginGenerale() {
 }
 
 
-/* =========================================
-   LOGIN PRINCIPALE
-========================================= */
+function openMainLogin() {
 
-function richiediAccessoPrincipale() {
-
-    document.getElementById("sediPage").style.display =
-        "none";
-
-    document.getElementById("loginPrincipalePage").style.display =
-        "flex";
+    hide("sedePage");
+    show("mainLoginPage");
 
 }
 
 
-function loginPrincipale() {
+function loginMain() {
 
-    const username =
-        document.getElementById("usernamePrincipale").value.trim();
+    const user =
+        document.getElementById("mainUser").value.trim();
 
-    const password =
-        document.getElementById("passwordPrincipale").value.trim();
+    const pass =
+        document.getElementById("mainPass").value.trim();
 
 
-    if (username === "pane" &&
-        password === "pane") {
+    if (user === "pane" && pass === "pane") {
 
-        document.getElementById("principaleError").textContent =
-            "";
+        document.getElementById("mainError").textContent = "";
 
-        apriSede("principale");
+        openSede("principale");
 
     } else {
 
-        document.getElementById("principaleError").textContent =
+        document.getElementById("mainError").textContent =
             "Nome o password non corretti.";
 
     }
@@ -782,548 +1023,476 @@ function loginPrincipale() {
 }
 
 
-/* =========================================
+/* =========================================================
    SEDI
-========================================= */
+========================================================= */
 
-function apriSede(sede) {
+function openSede(sede) {
 
-    sedeAttuale = sede;
+    currentSede = sede;
 
+    hide("sedePage");
+    hide("mainLoginPage");
 
-    document.getElementById("sediPage").style.display =
-        "none";
-
-    document.getElementById("loginPrincipalePage").style.display =
-        "none";
-
-    document.getElementById("dashboardPage").style.display =
-        "block";
+    show("dashboardPage");
 
 
-    const titolo =
-        document.getElementById("dashboardTitolo");
+    const title =
+        document.getElementById("dashboardTitle");
 
-    const descrizione =
-        document.getElementById("dashboardDescrizione");
+    const subtitle =
+        document.getElementById("dashboardSubtitle");
 
-    const sedeNome =
-        document.getElementById("sedeNome");
+    const current =
+        document.getElementById("currentSede");
 
 
     if (sede === "principale") {
 
-        sedeNome.textContent =
-            "🏢 Sede Principale";
+        current.textContent = "🏢 Sede Principale";
 
-        titolo.textContent =
+        title.textContent =
             "Controllo generale azienda";
 
-        descrizione.textContent =
-            "Gestione completa dell'azienda";
+        subtitle.textContent =
+            "Gestione completa delle sedi";
 
     }
 
 
     if (sede === "senigallia") {
 
-        sedeNome.textContent =
-            "📍 Senigallia";
+        current.textContent = "📍 Senigallia";
 
-        titolo.textContent =
+        title.textContent =
             "Gestionale Senigallia";
 
-        descrizione.textContent =
-            "Gestione del punto vendita";
+        subtitle.textContent =
+            "Gestione punto vendita";
 
     }
 
 
     if (sede === "marotta") {
 
-        sedeNome.textContent =
-            "📍 Marotta";
+        current.textContent = "📍 Marotta";
 
-        titolo.textContent =
+        title.textContent =
             "Gestionale Marotta";
 
-        descrizione.textContent =
-            "Gestione del punto vendita";
+        subtitle.textContent =
+            "Gestione punto vendita";
 
     }
 
 }
 
 
-/* =========================================
+function backToSedi() {
+
+    hide("dashboardPage");
+    hide("modulePage");
+    hide("mainLoginPage");
+
+    show("sedePage");
+
+}
+
+
+/* =========================================================
    MODULI
-========================================= */
+========================================================= */
 
-function apriModulo(modulo) {
+const moduleData = {
 
-    document.getElementById("dashboardPage").style.display =
-        "none";
+    ordini: [
+        "🧾",
+        "Ordini",
+        "Ordini, calendario e storico"
+    ],
 
-    document.getElementById("modulePage").style.display =
-        "block";
+    magazzino: [
+        "📦",
+        "Magazzino",
+        "Gestione delle scorte"
+    ],
 
+    catalogo: [
+        "🍝",
+        "Catalogo prodotti",
+        "Anagrafica prodotti aziendali"
+    ],
 
-    document.getElementById("catalogoContent").style.display =
-        "none";
+    produzione: [
+        "🏭",
+        "Produzione",
+        "Produzione e lotti"
+    ],
 
-    document.getElementById("genericModule").style.display =
-        "block";
+    scadenze: [
+        "🟠",
+        "Scadenze",
+        "Controllo delle date"
+    ],
 
+    temperature: [
+        "🌡️",
+        "Temperature",
+        "Frigoriferi e congelatori"
+    ],
 
-    const dati = {
+    pulizie: [
+        "🧹",
+        "Pulizie",
+        "Controllo giornaliero"
+    ],
 
-        magazzino: [
-            "📦",
-            "Magazzino",
-            "Gestione prodotti e scorte",
-            "Qui gestiremo quantità, fresco, scongelato, lotti e movimenti."
-        ],
+    storico: [
+        "📋",
+        "Storico",
+        "Storico attività"
+    ]
 
-        ordini: [
-            "🧾",
-            "Ordini",
-            "Gestione degli ordini",
-            "Qui arriveranno gli ordini di Senigallia e Marotta."
-        ],
-
-        catalogo: [
-            "🍝",
-            "Catalogo prodotti",
-            "Anagrafica generale dei prodotti",
-            ""
-        ],
-
-        produzione: [
-            "🏭",
-            "Produzione",
-            "Produzione e gestione dei lotti",
-            "Qui registreremo la produzione giornaliera e i lotti."
-        ],
-
-        scadenze: [
-            "🟠",
-            "Scadenze",
-            "Controllo automatico",
-            "Il sistema controllerà automaticamente le date di scadenza."
-        ],
-
-        temperature: [
-            "🌡️",
-            "Temperature",
-            "Controllo delle temperature",
-            "Qui verranno registrate le temperature."
-        ],
-
-        pulizie: [
-            "🧹",
-            "Pulizie",
-            "Controllo delle pulizie",
-            "Qui verranno gestite le pulizie giornaliere."
-        ],
-
-        storico: [
-            "📋",
-            "Storico movimenti",
-            "Storico del magazzino",
-            "Qui conserveremo tutti i movimenti."
-        ]
-
-    };
+};
 
 
-    const info = dati[modulo];
+function openModule(module) {
+
+    currentModule = module;
+
+    hide("dashboardPage");
+    show("modulePage");
+
+
+    Object.keys(moduleData).forEach(key => {
+
+        const id =
+            key + "Module";
+
+        const el =
+            document.getElementById(id);
+
+        if (el) {
+            hide(id);
+        }
+
+    });
+
+
+    const data =
+        moduleData[module];
 
 
     document.getElementById("moduleIcon").textContent =
-        info[0];
+        data[0];
 
     document.getElementById("moduleTitle").textContent =
-        info[1];
+        data[1];
 
     document.getElementById("moduleDescription").textContent =
-        info[2];
-
-    document.getElementById("placeholderText").textContent =
-        info[3];
+        data[2];
 
     document.getElementById("moduleSede").textContent =
-        nomeSede(sedeAttuale);
+        sedeName(currentSede);
 
 
-    if (modulo === "catalogo") {
+    show(module + "Module");
 
-        document.getElementById("catalogoContent").style.display =
-            "block";
 
-        document.getElementById("genericModule").style.display =
-            "none";
+    if (module === "catalogo")
+        renderProducts();
 
-        mostraProdotti();
+    if (module === "ordini")
+        initOrders();
 
-    }
+    if (module === "magazzino")
+        renderWarehouse();
+
+    if (module === "produzione")
+        renderProduction();
+
+    if (module === "scadenze")
+        renderExpiries();
+
+    if (module === "temperature")
+        initTemperatures();
+
+    if (module === "pulizie")
+        initCleaning();
+
+    if (module === "storico")
+        renderHistory();
 
 }
 
 
-/* =========================================
-   NUOVO PRODOTTO
-========================================= */
+function backToDashboard() {
 
-function mostraFormProdotto() {
+    hide("modulePage");
+    show("dashboardPage");
 
-    prodottoInModifica = null;
+}
 
-    document.getElementById("titoloFormProdotto").textContent =
+
+/* =========================================================
+   CATALOGO
+========================================================= */
+
+function newProduct() {
+
+    clearProductForm();
+
+    document.getElementById("productFormTitle").textContent =
         "Nuovo prodotto";
 
-    document.getElementById("salvaProdottoButton").textContent =
-        "SALVA PRODOTTO";
-
-
-    pulisciFormProdotto();
-
-
-    document.getElementById("formProdotto").style.display =
-        "block";
+    show("productForm");
 
 }
 
 
-/* =========================================
-   NASCONDI FORM
-========================================= */
+function clearProductForm() {
 
-function nascondiFormProdotto() {
+    document.getElementById("productId").value = "";
 
-    prodottoInModifica = null;
+    document.getElementById("productName").value = "";
 
-    document.getElementById("formProdotto").style.display =
-        "none";
+    document.getElementById("productCode").value = "";
 
-}
+    document.getElementById("productCategory").value = "";
 
+    document.getElementById("productType").value = "Fresco";
 
-/* =========================================
-   PULISCI FORM
-========================================= */
+    document.getElementById("productDuration").value = "";
 
-function pulisciFormProdotto() {
+    document.getElementById("productWeight").value = "";
 
-    document.getElementById("idProdottoModifica").value =
-        "";
+    document.getElementById("productPrice").value = "";
 
-    document.getElementById("nomeProdotto").value =
-        "";
+    document.getElementById("productIngredients").value = "";
 
-    document.getElementById("codiceProdotto").value =
-        "";
-
-    document.getElementById("categoriaProdotto").value =
-        "";
-
-    document.getElementById("gestioneProdotto").value =
-        "Fresco";
-
-    document.getElementById("durataProdotto").value =
-        "";
-
-    document.getElementById("pesoProdotto").value =
-        "";
-
-    document.getElementById("prezzoProdotto").value =
-        "";
-
-    document.getElementById("ingredientiProdotto").value =
-        "";
-
-    document.getElementById("allergeniProdotto").value =
-        "";
+    document.getElementById("productAllergens").value = "";
 
 }
 
 
-/* =========================================
-   SALVA / MODIFICA PRODOTTO
-========================================= */
+function closeProductForm() {
 
-function salvaProdotto() {
+    hide("productForm");
 
-    const nome =
-        document.getElementById("nomeProdotto").value.trim();
+}
 
 
-    if (!nome) {
+function saveProduct() {
 
-        alert(
-            "Inserisci almeno il nome del prodotto."
-        );
+    const name =
+        document.getElementById("productName").value.trim();
+
+
+    if (!name) {
+
+        alert("Inserisci il nome del prodotto.");
 
         return;
 
     }
 
 
-    const datiProdotto = {
+    const id =
+        document.getElementById("productId").value;
 
-        nome: nome,
 
-        codice:
-            document.getElementById("codiceProdotto").value.trim(),
+    const data = {
 
-        categoria:
-            document.getElementById("categoriaProdotto").value.trim(),
+        name,
 
-        gestione:
-            document.getElementById("gestioneProdotto").value,
+        code:
+            document.getElementById("productCode").value.trim(),
 
-        durata:
-            document.getElementById("durataProdotto").value,
+        category:
+            document.getElementById("productCategory").value.trim(),
 
-        peso:
-            document.getElementById("pesoProdotto").value,
+        type:
+            document.getElementById("productType").value,
 
-        prezzo:
-            document.getElementById("prezzoProdotto").value,
+        duration:
+            document.getElementById("productDuration").value,
 
-        ingredienti:
-            document.getElementById("ingredientiProdotto").value.trim(),
+        weight:
+            document.getElementById("productWeight").value,
 
-        allergeni:
-            document.getElementById("allergeniProdotto").value.trim(),
+        price:
+            document.getElementById("productPrice").value,
 
-        attivo: true
+        ingredients:
+            document.getElementById("productIngredients").value.trim(),
+
+        allergens:
+            document.getElementById("productAllergens").value.trim(),
+
+        active: true
 
     };
 
 
-    /* MODIFICA */
+    if (id) {
 
-    if (prodottoInModifica !== null) {
-
-        const indice =
-            prodotti.findIndex(
-                p => p.id === prodottoInModifica
+        const index =
+            products.findIndex(
+                p => String(p.id) === String(id)
             );
 
 
-        if (indice !== -1) {
+        if (index >= 0) {
 
-            prodotti[indice] = {
-
-                ...prodotti[indice],
-
-                ...datiProdotto
-
+            products[index] = {
+                ...products[index],
+                ...data
             };
 
         }
 
-    }
+    } else {
 
-
-    /* NUOVO */
-
-    else {
-
-        prodotti.push({
+        products.push({
 
             id: Date.now(),
 
-            ...datiProdotto
+            ...data
 
         });
 
     }
 
 
-    localStorage.setItem(
-        "prodottiCasereccia",
-        JSON.stringify(prodotti)
-    );
+    saveProducts();
 
+    closeProductForm();
 
-    nascondiFormProdotto();
-
-    mostraProdotti();
+    renderProducts();
 
 }
 
 
-/* =========================================
-   MODIFICA PRODOTTO
-========================================= */
+function editProduct(id) {
 
-function modificaProdotto(id) {
-
-    const prodotto =
-        prodotti.find(
-            p => p.id === id
+    const p =
+        products.find(
+            item => item.id === id
         );
 
 
-    if (!prodotto) {
-
-        alert(
-            "Prodotto non trovato."
-        );
-
+    if (!p)
         return;
 
-    }
 
-
-    prodottoInModifica = id;
-
-
-    document.getElementById("titoloFormProdotto").textContent =
+    document.getElementById("productFormTitle").textContent =
         "Modifica prodotto";
 
-    document.getElementById("salvaProdottoButton").textContent =
-        "SALVA MODIFICHE";
+
+    document.getElementById("productId").value =
+        p.id;
+
+    document.getElementById("productName").value =
+        p.name || "";
+
+    document.getElementById("productCode").value =
+        p.code || "";
+
+    document.getElementById("productCategory").value =
+        p.category || "";
+
+    document.getElementById("productType").value =
+        p.type || "Fresco";
+
+    document.getElementById("productDuration").value =
+        p.duration || "";
+
+    document.getElementById("productWeight").value =
+        p.weight || "";
+
+    document.getElementById("productPrice").value =
+        p.price || "";
+
+    document.getElementById("productIngredients").value =
+        p.ingredients || "";
+
+    document.getElementById("productAllergens").value =
+        p.allergens || "";
 
 
-    document.getElementById("idProdottoModifica").value =
-        prodotto.id;
-
-
-    document.getElementById("nomeProdotto").value =
-        prodotto.nome || "";
-
-    document.getElementById("codiceProdotto").value =
-        prodotto.codice || "";
-
-    document.getElementById("categoriaProdotto").value =
-        prodotto.categoria || "";
-
-    document.getElementById("gestioneProdotto").value =
-        prodotto.gestione || "Fresco";
-
-    document.getElementById("durataProdotto").value =
-        prodotto.durata || "";
-
-    document.getElementById("pesoProdotto").value =
-        prodotto.peso || "";
-
-    document.getElementById("prezzoProdotto").value =
-        prodotto.prezzo || "";
-
-    document.getElementById("ingredientiProdotto").value =
-        prodotto.ingredienti || "";
-
-    document.getElementById("allergeniProdotto").value =
-        prodotto.allergeni || "";
-
-
-    document.getElementById("formProdotto").style.display =
-        "block";
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    show("productForm");
 
 }
 
 
-/* =========================================
-   ELIMINA PRODOTTO
-========================================= */
+function deleteProduct(id) {
 
-function eliminaProdotto(id) {
-
-    const prodotto =
-        prodotti.find(
-            p => p.id === id
+    const p =
+        products.find(
+            item => item.id === id
         );
 
 
-    if (!prodotto) {
+    if (!p)
         return;
-    }
 
 
-    const conferma =
-        confirm(
-            'Sei sicuro di voler eliminare "' +
-            prodotto.nome +
-            '"?'
-        );
-
-
-    if (!conferma) {
+    if (!confirm(
+        `Vuoi eliminare "${p.name}"?`
+    ))
         return;
-    }
 
 
-    prodotti =
-        prodotti.filter(
-            p => p.id !== id
+    products =
+        products.filter(
+            item => item.id !== id
         );
 
+
+    saveProducts();
+
+    renderProducts();
+
+}
+
+
+function saveProducts() {
 
     localStorage.setItem(
-        "prodottiCasereccia",
-        JSON.stringify(prodotti)
+        "casereccia_products",
+        JSON.stringify(products)
     );
-
-
-    mostraProdotti();
 
 }
 
 
-/* =========================================
-   MOSTRA PRODOTTI
-========================================= */
+function renderProducts() {
 
-function mostraProdotti() {
-
-    const lista =
-        document.getElementById("listaProdotti");
+    const list =
+        document.getElementById("productList");
 
 
-    const ricerca =
-        document.getElementById("cercaProdotto")
+    const search =
+        document.getElementById("searchProduct")
             .value
             .toLowerCase()
             .trim();
 
 
-    const filtrati =
-        prodotti.filter(
-            p =>
-                (p.nome || "")
-                    .toLowerCase()
-                    .includes(ricerca)
+    const filtered =
+        products.filter(p =>
+            (p.name || "")
+                .toLowerCase()
+                .includes(search)
         );
 
 
-    if (filtrati.length === 0) {
+    if (!filtered.length) {
 
-        lista.innerHTML = `
-
-            <div class="module-placeholder">
-
-                <div class="placeholder-icon">
-                    🍝
-                </div>
-
-                <h2>
-                    Nessun prodotto
-                </h2>
-
-                <p>
-                    Inserisci il primo prodotto nel catalogo.
-                </p>
-
+        list.innerHTML = `
+            <div class="empty-box">
+                🍝 Nessun prodotto presente.
             </div>
-
         `;
 
         return;
@@ -1331,66 +1500,45 @@ function mostraProdotti() {
     }
 
 
-    lista.innerHTML =
-        filtrati.map(p => `
+    list.innerHTML =
+        filtered.map(p => `
 
             <div class="product-card">
 
-                <div class="product-icon">
+                <div class="product-card-icon">
                     🍝
                 </div>
 
-
-                <div class="product-info">
+                <div class="product-main">
 
                     <h3>
-                        ${escapeHtml(p.nome)}
+                        ${safe(p.name)}
                     </h3>
 
                     <p>
-                        ${escapeHtml(p.codice || "Nessun codice")}
+                        ${safe(p.code || "Nessun codice")}
                         ·
-                        ${escapeHtml(p.categoria || "Senza categoria")}
+                        ${safe(p.category || "Senza categoria")}
                     </p>
 
                 </div>
 
-
-                <div class="product-details">
-
-                    <span>
-                        ${escapeHtml(p.gestione || "")}
-                    </span>
-
-                    ${
-                        p.durata
-                        ? `<span>
-                            ${escapeHtml(p.durata)}
-                            giorni
-                           </span>`
-                        : ""
-                    }
-
+                <div class="product-badge">
+                    ${safe(p.type || "Fresco")}
                 </div>
 
-
-                <div class="product-actions">
+                <div class="card-actions">
 
                     <button
-                        class="edit-button"
-                        onclick="modificaProdotto(${p.id})">
-
-                        ✏️ Modifica
-
+                        class="small-btn edit"
+                        onclick="editProduct(${p.id})">
+                        ✏️
                     </button>
 
-
                     <button
-                        class="delete-button"
-                        onclick="eliminaProdotto(${p.id})">
-
-                        🗑️ Elimina
-
+                        class="small-btn delete"
+                        onclick="deleteProduct(${p.id})">
+                        🗑️
                     </button>
 
                 </div>
@@ -1402,68 +1550,1870 @@ function mostraProdotti() {
 }
 
 
-/* =========================================
-   SICUREZZA TESTO
-========================================= */
+/* =========================================================
+   ORDINI
+========================================================= */
 
-function escapeHtml(testo) {
+function initOrders() {
 
-    return String(testo)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    const month =
+        document.getElementById("orderMonth");
+
+    const year =
+        document.getElementById("orderYear");
+
+
+    month.innerHTML = "";
+
+    const months = [
+        "Gennaio",
+        "Febbraio",
+        "Marzo",
+        "Aprile",
+        "Maggio",
+        "Giugno",
+        "Luglio",
+        "Agosto",
+        "Settembre",
+        "Ottobre",
+        "Novembre",
+        "Dicembre"
+    ];
+
+
+    months.forEach((m, i) => {
+
+        month.innerHTML +=
+            `<option value="${i}">${m}</option>`;
+
+    });
+
+
+    year.innerHTML = "";
+
+    const currentYear =
+        new Date().getFullYear();
+
+
+    for (
+        let y = currentYear - 5;
+        y <= currentYear + 5;
+        y++
+    ) {
+
+        year.innerHTML +=
+            `<option value="${y}">${y}</option>`;
+
+    }
+
+
+    month.value =
+        calendarDate.getMonth();
+
+    year.value =
+        calendarDate.getFullYear();
+
+
+    renderCalendar();
 
 }
 
 
-/* =========================================
-   NAVIGAZIONE
-========================================= */
+function changeMonth(amount) {
 
-function nomeSede(sede) {
+    calendarDate.setMonth(
+        calendarDate.getMonth() + amount
+    );
+
+    document.getElementById("orderMonth").value =
+        calendarDate.getMonth();
+
+    document.getElementById("orderYear").value =
+        calendarDate.getFullYear();
+
+
+    renderCalendar();
+
+}
+
+
+function renderCalendar() {
+
+    const month =
+        Number(
+            document.getElementById("orderMonth").value
+        );
+
+    const year =
+        Number(
+            document.getElementById("orderYear").value
+        );
+
+
+    calendarDate =
+        new Date(year, month, 1);
+
+
+    const calendar =
+        document.getElementById("calendar");
+
+
+    const firstDay =
+        new Date(year, month, 1).getDay();
+
+
+    const days =
+        new Date(year, month + 1, 0).getDate();
+
+
+    let start =
+        firstDay === 0
+            ? 6
+            : firstDay - 1;
+
+
+    let html = `
+
+        <div class="calendar-week">
+            <div>LUN</div>
+            <div>MAR</div>
+            <div>MER</div>
+            <div>GIO</div>
+            <div>VEN</div>
+            <div>SAB</div>
+            <div>DOM</div>
+        </div>
+
+        <div class="calendar-days">
+    `;
+
+
+    for (let i = 0; i < start; i++) {
+
+        html += `<div class="calendar-day empty"></div>`;
+
+    }
+
+
+    for (let day = 1; day <= days; day++) {
+
+        const date =
+            `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+
+        const dayOrders =
+            orders.filter(
+                o => o.date === date
+            );
+
+
+        let marker = "";
+
+
+        if (dayOrders.length) {
+
+            marker =
+                `<span class="day-marker">
+                    ${dayOrders.length}
+                 </span>`;
+
+        }
+
+
+        html += `
+
+            <button
+                class="calendar-day"
+                onclick="showOrdersForDate('${date}')">
+
+                <strong>${day}</strong>
+
+                ${marker}
+
+            </button>
+
+        `;
+
+    }
+
+
+    html += `</div>`;
+
+    calendar.innerHTML = html;
+
+}
+
+
+function newOrder() {
+
+    show("orderForm");
+
+
+    document.getElementById("orderDate").value =
+        today();
+
+
+    document.getElementById("orderSede").value =
+        currentSede === "marotta"
+            ? "marotta"
+            : "senigallia";
+
+
+    document.getElementById("orderItems").innerHTML = "";
+
+    addOrderItem();
+
+}
+
+
+function addOrderItem() {
+
+    const container =
+        document.getElementById("orderItems");
+
+
+    const row =
+        document.createElement("div");
+
+    row.className = "order-item";
+
+
+    const options =
+        products
+            .filter(p => p.active !== false)
+            .map(p =>
+                `<option value="${p.id}">
+                    ${safe(p.name)}
+                 </option>`
+            )
+            .join("");
+
+
+    row.innerHTML = `
+
+        <select class="order-product">
+
+            ${options}
+
+        </select>
+
+
+        <input
+            class="order-quantity"
+            type="number"
+            step="0.01"
+            min="0"
+            placeholder="Kg">
+
+
+        <button
+            class="remove-item"
+            onclick="this.parentElement.remove()">
+            ×
+        </button>
+
+    `;
+
+
+    container.appendChild(row);
+
+}
+
+
+function closeOrderForm() {
+
+    hide("orderForm");
+
+}
+
+
+function saveOrder() {
+
+    const date =
+        document.getElementById("orderDate").value;
+
+
+    const sede =
+        document.getElementById("orderSede").value;
+
+
+    const rows =
+        document.querySelectorAll(".order-item");
+
+
+    if (!date) {
+
+        alert("Inserisci la data.");
+
+        return;
+
+    }
+
+
+    const items = [];
+
+
+    rows.forEach(row => {
+
+        const productId =
+            Number(
+                row.querySelector(".order-product").value
+            );
+
+        const quantity =
+            Number(
+                row.querySelector(".order-quantity").value
+            );
+
+
+        if (productId && quantity > 0) {
+
+            const product =
+                products.find(
+                    p => p.id === productId
+                );
+
+
+            if (product) {
+
+                items.push({
+
+                    productId,
+
+                    productName:
+                        product.name,
+
+                    quantity
+
+                });
+
+            }
+
+        }
+
+    });
+
+
+    if (!items.length) {
+
+        alert("Inserisci almeno un prodotto.");
+
+        return;
+
+    }
+
+
+    const orderNumber =
+        "ORD-" +
+        date.replaceAll("-", "") +
+        "-" +
+        String(orders.length + 1).padStart(3, "0");
+
+
+    const order = {
+
+        id: Date.now(),
+
+        number: orderNumber,
+
+        date,
+
+        sede,
+
+        items,
+
+        notes:
+            document.getElementById("orderNotes").value.trim(),
+
+        status: "Inviato",
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    orders.push(order);
+
+    saveOrders();
+
+
+    addHistory(
+        "Ordine",
+        `${order.number} - ${sede}`
+    );
+
+
+    closeOrderForm();
+
+    renderCalendar();
+
+    showOrdersForDate(date);
+
+}
+
+
+function showOrdersForDate(date) {
+
+    const container =
+        document.getElementById("selectedDayOrders");
+
+
+    const dayOrders =
+        orders.filter(
+            o => o.date === date
+        );
+
+
+    let html = `
+
+        <div class="section-title">
+
+            <h2>
+                📅 Ordini del ${formatDate(date)}
+            </h2>
+
+            <span>
+                ${dayOrders.length} ordine/i
+            </span>
+
+        </div>
+
+    `;
+
+
+    if (!dayOrders.length) {
+
+        html += `
+            <div class="empty-box">
+                Nessun ordine per questa giornata.
+            </div>
+        `;
+
+        container.innerHTML = html;
+
+        return;
+
+    }
+
+
+    dayOrders.forEach(order => {
+
+        html += `
+
+            <div class="order-card">
+
+                <div class="order-card-top">
+
+                    <div>
+
+                        <span class="order-number">
+                            ${safe(order.number)}
+                        </span>
+
+                        <h3>
+                            📍 ${safe(
+                                sedeName(order.sede)
+                            )}
+                        </h3>
+
+                    </div>
+
+
+                    <select
+                        onchange="changeOrderStatus(${order.id}, this.value)">
+
+                        <option
+                            ${order.status === "Inviato" ? "selected" : ""}>
+                            Inviato
+                        </option>
+
+                        <option
+                            ${order.status === "In lavorazione" ? "selected" : ""}>
+                            In lavorazione
+                        </option>
+
+                        <option
+                            ${order.status === "Completato" ? "selected" : ""}>
+                            Completato
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="order-items">
+
+                    ${order.items.map(item => `
+
+                        <div>
+
+                            <span>
+                                ${safe(item.productName)}
+                            </span>
+
+                            <strong>
+                                ${item.quantity} kg
+                            </strong>
+
+                        </div>
+
+                    `).join("")}
+
+                </div>
+
+
+                ${
+                    order.notes
+                    ? `<p class="order-note">
+                        📝 ${safe(order.notes)}
+                       </p>`
+                    : ""
+                }
+
+            </div>
+
+        `;
+
+    });
+
+
+    container.innerHTML = html;
+
+}
+
+
+function changeOrderStatus(id, status) {
+
+    const order =
+        orders.find(
+            o => o.id === id
+        );
+
+
+    if (!order)
+        return;
+
+
+    order.status = status;
+
+    saveOrders();
+
+    addHistory(
+        "Ordine aggiornato",
+        `${order.number} → ${status}`
+    );
+
+    renderCalendar();
+
+}
+
+
+function saveOrders() {
+
+    localStorage.setItem(
+        "casereccia_orders",
+        JSON.stringify(orders)
+    );
+
+}
+
+
+/* =========================================================
+   PRODUZIONE
+========================================================= */
+
+function newProduction() {
+
+    show("productionForm");
+
+
+    document.getElementById("productionDate").value =
+        today();
+
+
+    const select =
+        document.getElementById("productionProduct");
+
+
+    select.innerHTML =
+        products
+            .map(p =>
+                `<option value="${p.id}">
+                    ${safe(p.name)}
+                 </option>`
+            )
+            .join("");
+
+}
+
+
+function closeProductionForm() {
+
+    hide("productionForm");
+
+}
+
+
+function saveProduction() {
+
+    const date =
+        document.getElementById("productionDate").value;
+
+
+    const productId =
+        Number(
+            document.getElementById("productionProduct").value
+        );
+
+
+    const quantity =
+        Number(
+            document.getElementById("productionQuantity").value
+        );
+
+
+    const type =
+        document.getElementById("productionType").value;
+
+
+    if (!date || !productId || quantity <= 0) {
+
+        alert("Completa i dati della produzione.");
+
+        return;
+
+    }
+
+
+    const product =
+        products.find(
+            p => p.id === productId
+        );
+
+
+    if (!product)
+        return;
+
+
+    const batch =
+        date.replaceAll("-", "");
+
+
+    production.push({
+
+        id: Date.now(),
+
+        date,
+
+        productId,
+
+        productName:
+            product.name,
+
+        quantity,
+
+        type,
+
+        batch
+
+    });
+
+
+    saveProduction();
+
+
+    addHistory(
+        "Produzione",
+        `${product.name} - ${quantity} kg - lotto ${batch}`
+    );
+
+
+    closeProductionForm();
+
+    renderProduction();
+
+    renderExpiries();
+
+}
+
+
+function saveProduction() {
+
+    localStorage.setItem(
+        "casereccia_production",
+        JSON.stringify(production)
+    );
+
+}
+
+
+function renderProduction() {
+
+    const list =
+        document.getElementById("productionList");
+
+
+    const data =
+        production.filter(
+            p =>
+                currentSede === "principale"
+                || !p.sede
+                || p.sede === currentSede
+        );
+
+
+    if (!data.length) {
+
+        list.innerHTML =
+            `<div class="empty-box">
+                🏭 Nessuna produzione registrata.
+             </div>`;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        data.slice().reverse().map(p => `
+
+            <div class="data-card">
+
+                <div>
+
+                    <h3>
+                        ${safe(p.productName)}
+                    </h3>
+
+                    <p>
+                        ${formatDate(p.date)}
+                        ·
+                        ${p.quantity} kg
+                        ·
+                        ${safe(p.type)}
+                    </p>
+
+                </div>
+
+
+                <div class="batch-badge">
+                    LOTTO ${safe(p.batch)}
+                </div>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   MAGAZZINO
+========================================================= */
+
+function renderWarehouse() {
+
+    const name =
+        sedeName(currentSede);
+
+
+    document.getElementById("warehouseName").textContent =
+        name;
+
+
+    const list =
+        document.getElementById("warehouseList");
+
+
+    const movements =
+        warehouse[currentSede] || [];
+
+
+    if (!movements.length) {
+
+        list.innerHTML =
+            `<div class="empty-box">
+                📦 Nessun movimento registrato.
+             </div>`;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        movements.slice().reverse().map(m => `
+
+            <div class="data-card">
+
+                <div>
+
+                    <h3>
+                        ${safe(m.productName)}
+                    </h3>
+
+                    <p>
+                        ${safe(m.type)}
+                        ·
+                        Lotto ${safe(m.batch || "-")}
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    ${m.quantity} kg
+                </strong>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   SCADENZE
+========================================================= */
+
+function renderExpiries() {
+
+    const list =
+        document.getElementById("expiryList");
+
+
+    if (!production.length) {
+
+        list.innerHTML =
+            `<div class="empty-box">
+                🟠 Nessuna produzione con scadenza.
+             </div>`;
+
+        return;
+
+    }
+
+
+    const todayDate =
+        new Date();
+
+
+    list.innerHTML =
+        production.slice().reverse().map(p => {
+
+            const product =
+                products.find(
+                    x => x.id === p.productId
+                );
+
+
+            const duration =
+                Number(
+                    product?.duration || 3
+                );
+
+
+            const expiry =
+                new Date(p.date);
+
+            expiry.setDate(
+                expiry.getDate() + duration
+            );
+
+
+            const diff =
+                Math.ceil(
+                    (
+                        expiry - todayDate
+                    ) /
+                    86400000
+                );
+
+
+            let cls =
+                "expiry-normal";
+
+            let status =
+                "🟢 OK";
+
+
+            if (diff === 1) {
+
+                cls =
+                    "expiry-warning";
+
+                status =
+                    "🟠 SCADENZA DOMANI";
+
+            }
+
+
+            if (diff <= 0) {
+
+                cls =
+                    "expiry-danger";
+
+                status =
+                    "🔴 SCADUTO";
+
+            }
+
+
+            return `
+
+                <div class="data-card ${cls}">
+
+                    <div>
+
+                        <h3>
+                            ${safe(p.productName)}
+                        </h3>
+
+                        <p>
+                            Lotto ${safe(p.batch)}
+                            ·
+                            Scadenza ${formatDate(
+                                expiry.toISOString().slice(0,10)
+                            )}
+                        </p>
+
+                    </div>
+
+                    <strong>
+                        ${status}
+                    </strong>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   TEMPERATURE
+========================================================= */
+
+function initTemperatures() {
+
+    const year =
+        document.getElementById("tempYear");
+
+    const month =
+        document.getElementById("tempMonth");
+
+
+    year.innerHTML = "";
+
+    const currentYear =
+        new Date().getFullYear();
+
+
+    for (
+        let y = currentYear - 2;
+        y <= currentYear + 5;
+        y++
+    ) {
+
+        year.innerHTML +=
+            `<option value="${y}">${y}</option>`;
+
+    }
+
+
+    month.innerHTML = "";
+
+    const months = [
+        "Gennaio",
+        "Febbraio",
+        "Marzo",
+        "Aprile",
+        "Maggio",
+        "Giugno",
+        "Luglio",
+        "Agosto",
+        "Settembre",
+        "Ottobre",
+        "Novembre",
+        "Dicembre"
+    ];
+
+
+    months.forEach((m, i) => {
+
+        month.innerHTML +=
+            `<option value="${i}">${m}</option>`;
+
+    });
+
+
+    year.value =
+        new Date().getFullYear();
+
+    month.value =
+        new Date().getMonth();
+
+
+    renderTemperatureEquipment();
+
+}
+
+
+function configureTemperatures() {
+
+    const fridgeCount =
+        Number(
+            document.getElementById("fridgeCount").value
+        );
+
+
+    const freezerCount =
+        Number(
+            document.getElementById("freezerCount").value
+        );
+
+
+    temperatures[currentSede] =
+        temperatures[currentSede] || {};
+
+
+    temperatures[currentSede].fridges =
+        [];
+
+
+    temperatures[currentSede].freezers =
+        [];
+
+
+    for (
+        let i = 1;
+        i <= fridgeCount;
+        i++
+    ) {
+
+        temperatures[currentSede].fridges.push({
+
+            id: "fridge_" + i,
+
+            name:
+                "Frigorifero " + i
+
+        });
+
+    }
+
+
+    for (
+        let i = 1;
+        i <= freezerCount;
+        i++
+    ) {
+
+        temperatures[currentSede].freezers.push({
+
+            id: "freezer_" + i,
+
+            name:
+                "Congelatore " + i
+
+        });
+
+    }
+
+
+    saveTemperatures();
+
+    renderTemperatureEquipment();
+
+}
+
+
+function renderTemperatureEquipment() {
+
+    const container =
+        document.getElementById(
+            "temperatureEquipment"
+        );
+
+
+    const data =
+        temperatures[currentSede] ||
+        {
+            fridges: [],
+            freezers: []
+        };
+
+
+    let html = "";
+
+
+    data.fridges.forEach((f, i) => {
+
+        html += `
+
+            <div class="equipment-card">
+
+                <span>🧊</span>
+
+                <input
+                    value="${safe(f.name)}"
+                    onchange="renameEquipment('fridges', ${i}, this.value)">
+
+                <small>
+                    Riferimento 0°C / +4°C
+                </small>
+
+            </div>
+
+        `;
+
+    });
+
+
+    data.freezers.forEach((f, i) => {
+
+        html += `
+
+            <div class="equipment-card">
+
+                <span>❄️</span>
+
+                <input
+                    value="${safe(f.name)}"
+                    onchange="renameEquipment('freezers', ${i}, this.value)">
+
+                <small>
+                    Riferimento -18°C / -15°C
+                </small>
+
+            </div>
+
+        `;
+
+    });
+
+
+    container.innerHTML =
+        html ||
+        `<div class="empty-box">
+            Configura frigoriferi e congelatori.
+         </div>`;
+
+}
+
+
+function renameEquipment(type, index, value) {
+
+    if (!temperatures[currentSede])
+        return;
+
+
+    temperatures[currentSede][type][index].name =
+        value;
+
+
+    saveTemperatures();
+
+}
+
+
+function generateTemperatureMonth() {
+
+    /*
+       MODALITÀ DEMO/TEST.
+       Non utilizzare i valori generati casualmente
+       come registrazioni HACCP reali.
+    */
+
+
+    const year =
+        Number(
+            document.getElementById("tempYear").value
+        );
+
+
+    const month =
+        Number(
+            document.getElementById("tempMonth").value
+        );
+
+
+    const data =
+        temperatures[currentSede] ||
+        {
+            fridges: [],
+            freezers: []
+        };
+
+
+    const days =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    const key =
+        `${currentSede}_${year}_${month}`;
+
+
+    temperatures[key] =
+        temperatures[key] || {};
+
+
+    temperatures[key].rows =
+        [];
+
+
+    for (
+        let day = 1;
+        day <= days;
+        day++
+    ) {
+
+        const date =
+            `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+
+        const row = {
+
+            date,
+
+            fridges: {},
+
+            freezers: {}
+
+        };
+
+
+        data.fridges.forEach(f => {
+
+            row.fridges[f.id] =
+                randomBetween(0, 4);
+
+        });
+
+
+        data.freezers.forEach(f => {
+
+            row.freezers[f.id] =
+                randomBetween(-18, -15);
+
+        });
+
+
+        temperatures[key].rows.push(row);
+
+    }
+
+
+    saveTemperatures();
+
+    renderTemperatureTable();
+
+}
+
+
+function renderTemperatureTable() {
+
+    const year =
+        Number(
+            document.getElementById("tempYear").value
+        );
+
+
+    const month =
+        Number(
+            document.getElementById("tempMonth").value
+        );
+
+
+    const key =
+        `${currentSede}_${year}_${month}`;
+
+
+    const data =
+        temperatures[key];
+
+
+    const config =
+        temperatures[currentSede] ||
+        {
+            fridges: [],
+            freezers: []
+        };
+
+
+    const container =
+        document.getElementById(
+            "temperatureTable"
+        );
+
+
+    if (!data || !data.rows?.length) {
+
+        container.innerHTML =
+            `<div class="empty-box">
+                Nessun dato generato per questo mese.
+             </div>`;
+
+        return;
+
+    }
+
+
+    let html = `
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Data</th>
+
+    `;
+
+
+    config.fridges.forEach(f => {
+
+        html +=
+            `<th>${safe(f.name)}</th>`;
+
+    });
+
+
+    config.freezers.forEach(f => {
+
+        html +=
+            `<th>${safe(f.name)}</th>`;
+
+    });
+
+
+    html += `
+                </tr>
+            </thead>
+
+            <tbody>
+    `;
+
+
+    data.rows.forEach(row => {
+
+        html += `
+            <tr>
+
+                <td>
+                    ${formatDate(row.date)}
+                </td>
+        `;
+
+
+        config.fridges.forEach(f => {
+
+            html += `
+                <td>
+                    ${Number(
+                        row.fridges[f.id]
+                    ).toFixed(1)} °C
+                </td>
+            `;
+
+        });
+
+
+        config.freezers.forEach(f => {
+
+            html += `
+                <td>
+                    ${Number(
+                        row.freezers[f.id]
+                    ).toFixed(1)} °C
+                </td>
+            `;
+
+        });
+
+
+        html += `</tr>`;
+
+    });
+
+
+    html += `
+            </tbody>
+        </table>
+    `;
+
+
+    container.innerHTML = html;
+
+}
+
+
+function saveTemperatures() {
+
+    localStorage.setItem(
+        "casereccia_temperatures",
+        JSON.stringify(temperatures)
+    );
+
+}
+
+
+/* =========================================================
+   PULIZIE
+========================================================= */
+
+function initCleaning() {
+
+    const todayKey =
+        today();
+
+
+    const areas = [
+
+        "Laboratorio",
+
+        "Banco di lavoro",
+
+        "Frigoriferi",
+
+        "Congelatori",
+
+        "Pavimenti",
+
+        "Superfici"
+
+    ];
+
+
+    const existing =
+        cleanings[
+            currentSede + "_" + todayKey
+        ];
+
+
+    const container =
+        document.getElementById(
+            "cleaningToday"
+        );
+
+
+    container.innerHTML =
+        areas.map((area, index) => `
+
+            <div class="cleaning-row">
+
+                <span>
+                    ${area}
+                </span>
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        ${existing?.items?.[index]?.done
+                            ? "checked"
+                            : ""}>
+
+                    <strong>SI</strong>
+
+                </label>
+
+            </div>
+
+        `).join("");
+
+
+    document.getElementById("cleaningNotes").value =
+        existing?.notes || "";
+
+
+    renderCleaningHistory();
+
+}
+
+
+function saveCleaning() {
+
+    const key =
+        currentSede + "_" + today();
+
+
+    const rows =
+        document.querySelectorAll(
+            "#cleaningToday .cleaning-row"
+        );
+
+
+    const items = [];
+
+
+    rows.forEach(row => {
+
+        items.push({
+
+            name:
+                row.querySelector("span").textContent,
+
+            done:
+                row.querySelector(
+                    "input"
+                ).checked
+
+        });
+
+    });
+
+
+    cleanings[key] = {
+
+        date:
+            today(),
+
+        sede:
+            currentSede,
+
+        items,
+
+        notes:
+            document.getElementById(
+                "cleaningNotes"
+            ).value.trim()
+
+    };
+
+
+    localStorage.setItem(
+        "casereccia_cleanings",
+        JSON.stringify(cleanings)
+    );
+
+
+    addHistory(
+        "Pulizie",
+        `Checklist ${today()}`
+    );
+
+
+    alert(
+        "Giornata salvata."
+    );
+
+
+    renderCleaningHistory();
+
+}
+
+
+function renderCleaningHistory() {
+
+    const container =
+        document.getElementById(
+            "cleaningHistory"
+        );
+
+
+    const entries =
+        Object.values(cleanings)
+            .filter(
+                c =>
+                    c.sede === currentSede
+            )
+            .sort(
+                (a, b) =>
+                    b.date.localeCompare(a.date)
+            );
+
+
+    if (!entries.length) {
+
+        container.innerHTML =
+            `<div class="empty-box">
+                🧹 Nessuna giornata registrata.
+             </div>`;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        entries.map(c => `
+
+            <div class="data-card">
+
+                <div>
+
+                    <h3>
+                        ${formatDate(c.date)}
+                    </h3>
+
+                    <p>
+                        Checklist pulizie
+                    </p>
+
+                </div>
+
+                <strong>
+                    ${
+                        c.items.every(
+                            item => item.done
+                        )
+                        ? "🟢 SI"
+                        : "🟠 DA COMPLETARE"
+                    }
+                </strong>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   STORICO
+========================================================= */
+
+function addHistory(type, description) {
+
+    history.push({
+
+        id: Date.now(),
+
+        date:
+            new Date().toISOString(),
+
+        sede:
+            currentSede,
+
+        type,
+
+        description
+
+    });
+
+
+    localStorage.setItem(
+        "casereccia_history",
+        JSON.stringify(history)
+    );
+
+}
+
+
+function renderHistory() {
+
+    const container =
+        document.getElementById(
+            "historyList"
+        );
+
+
+    const search =
+        document.getElementById(
+            "historySearch"
+        )?.value
+        .toLowerCase()
+        .trim() || "";
+
+
+    const data =
+        history
+            .filter(
+                h =>
+                    h.sede === currentSede
+            )
+            .filter(
+                h =>
+                    `${h.type} ${h.description}`
+                        .toLowerCase()
+                        .includes(search)
+            )
+            .sort(
+                (a, b) =>
+                    b.date.localeCompare(a.date)
+            );
+
+
+    if (!data.length) {
+
+        container.innerHTML =
+            `<div class="empty-box">
+                📋 Nessuna attività nello storico.
+             </div>`;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        data.map(h => `
+
+            <div class="data-card">
+
+                <div>
+
+                    <h3>
+                        ${safe(h.type)}
+                    </h3>
+
+                    <p>
+                        ${safe(h.description)}
+                    </p>
+
+                </div>
+
+                <small>
+                    ${formatDateTime(h.date)}
+                </small>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   UTILITY
+========================================================= */
+
+function show(id) {
+
+    const el =
+        document.getElementById(id);
+
+    if (el)
+        el.classList.remove("hidden");
+
+}
+
+
+function hide(id) {
+
+    const el =
+        document.getElementById(id);
+
+    if (el)
+        el.classList.add("hidden");
+
+}
+
+
+function today() {
+
+    const d =
+        new Date();
+
+    return `${d.getFullYear()}-${String(
+        d.getMonth() + 1
+    ).padStart(2, "0")}-${String(
+        d.getDate()
+    ).padStart(2, "0")}`;
+
+}
+
+
+function formatDate(date) {
+
+    if (!date)
+        return "-";
+
+
+    const parts =
+        date.split("-");
+
+
+    if (parts.length !== 3)
+        return date;
+
+
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+}
+
+
+function formatDateTime(value) {
+
+    const d =
+        new Date(value);
+
+
+    return d.toLocaleString(
+        "it-IT",
+        {
+            dateStyle: "short",
+            timeStyle: "short"
+        }
+    );
+
+}
+
+
+function sedeName(sede) {
 
     if (sede === "principale")
-        return "🏢 Sede Principale";
+        return "Sede Principale";
 
     if (sede === "senigallia")
-        return "📍 Senigallia";
+        return "Senigallia";
 
     if (sede === "marotta")
-        return "📍 Marotta";
+        return "Marotta";
 
     return "Gestionale";
 
 }
 
 
-function tornaDashboard() {
+function randomBetween(min, max) {
 
-    document.getElementById("modulePage").style.display =
-        "none";
+    return (
+        Math.random() *
+        (max - min) +
+        min
+    ).toFixed(1);
 
-    document.getElementById("dashboardPage").style.display =
-        "block";
+}
+
+
+function safe(value) {
+
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 
 }
 
 
-function tornaAlleSedi() {
+/* =========================================================
+   AVVIO
+========================================================= */
 
-    document.getElementById("dashboardPage").style.display =
-        "none";
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    document.getElementById("modulePage").style.display =
-        "none";
+        hide("sedePage");
+        hide("mainLoginPage");
+        hide("dashboardPage");
+        hide("modulePage");
 
-    document.getElementById("loginPrincipalePage").style.display =
-        "none";
-
-    document.getElementById("sediPage").style.display =
-        "flex";
-
-}
+    }
+);
 
 </script>
 
