@@ -3,43 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasta Fresca La Casereccia - Gestionale</title>
+
+    <title>Gestionale - Pasta Fresca La Casereccia</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<header>
     <h1>🍝 Pasta Fresca La Casereccia</h1>
-    <h2>Gestionale Aziendale</h2>
+    <p>Gestionale Aziendale</p>
+</header>
 
-    <hr>
+<main class="dashboard">
 
-    <h3>🏢 Sede Principale</h3>
-    <p>Gestione generale dell'azienda</p>
+    <h2>Dashboard principale</h2>
 
-    <h3>📍 Senigallia</h3>
-    <p>Magazzino e ordini</p>
+    <div class="cards">
 
-    <h3>📍 Marotta</h3>
-    <p>Magazzino e ordini</p>
+        <div class="card">
+            <h2>🏢 Sede Principale</h2>
+            <p>Gestione generale dell'azienda</p>
+        </div>
 
-    <hr>
+        <div class="card">
+            <h2>📍 Senigallia</h2>
+            <p>Ordini e magazzino</p>
+        </div>
 
-    <h3>📦 Magazzini</h3>
-    <p>Magazzino centrale</p>
-    <p>Magazzino Senigallia</p>
-    <p>Magazzino Marotta</p>
+        <div class="card">
+            <h2>📍 Marotta</h2>
+            <p>Ordini e magazzino</p>
+        </div>
 
-    <h3>🧾 Ordini</h3>
-    <p>Ordini dei punti vendita</p>
+        <div class="card">
+            <h2>📦 Magazzini</h2>
+            <p>Gestione delle scorte e dei movimenti</p>
+        </div>
 
-    <h3>🚨 Scadenze</h3>
-    <p>Controllo prodotti in scadenza</p>
+        <div class="card">
+            <h2>🧾 Ordini</h2>
+            <p>Ordini ricevuti dai punti vendita</p>
+        </div>
 
-    <h3>🌡️ Temperature</h3>
-    <p>Controllo temperature</p>
+        <div class="card alert">
+            <h2>🟠 Scadenze</h2>
+            <p>Prodotti prossimi alla scadenza</p>
+        </div>
 
-    <h3>🧹 Pulizie</h3>
-    <p>Controllo pulizie</p>
+        <div class="card danger">
+            <h2>🔴 Attenzione</h2>
+            <p>Prodotti con scadenza odierna</p>
+        </div>
+
+        <div class="card">
+            <h2>🌡️ Temperature</h2>
+            <p>Controllo e registrazione temperature</p>
+        </div>
+
+        <div class="card">
+            <h2>🧹 Pulizie</h2>
+            <p>Controllo delle attività di pulizia</p>
+        </div>
+
+    </div>
+
+</main>
 
 </body>
 </html>
