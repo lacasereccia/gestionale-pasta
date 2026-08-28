@@ -42,7 +42,9 @@
       <aside class="sidebar">
         <div class="brand"><span class="brand-mark">P</span><span>Pastificio</span></div>
         <p class="sidebar-label">GESTIONE OPERATIVA</p>
-        <nav class="nav" aria-label="Navigazione principale">
+        <details class="app-dropdown menu-dropdown">
+          <summary><span>Menu</span><i aria-hidden="true">⌄</i></summary>
+          <nav class="nav" aria-label="Navigazione principale">
           <button class="nav-item active" data-view="dashboard"><span>▦</span> Panoramica</button>
           <button class="nav-item" data-view="orders"><span>↔</span> Ordini tra sedi</button>
           <button class="nav-item" data-view="inventory"><span>▤</span> Magazzino</button>
@@ -50,12 +52,16 @@
           <button class="nav-item" data-view="products"><span>□</span> Prodotti</button>
           <button class="nav-item" data-view="expiry"><span>◷</span> Scadenze <b id="expiryCount">0</b></button>
           <button class="nav-item" data-view="stocktake"><span>✓</span> Inventario</button>
-        </nav>
+          </nav>
+        </details>
         <div class="sidebar-footer"><span class="status-dot"></span> Dati salvati su questo dispositivo</div>
       </aside>
 
       <main>
-        <section class="operations-links top-operations"><button data-view-link="temperatures"><b>Temperature</b><span>Controllo giornaliero</span></button><button data-view-link="cleaning"><b>Pulizie</b><span>Checklist giornaliera</span></button><button data-view-link="receipts"><b>Corrispettivi</b><span>Foto e importi</span></button><button data-view-link="hours"><b>Ore lavorate</b><span>Personale e presenze</span></button></section>
+        <details class="app-dropdown data-dropdown">
+          <summary><span>Dati</span><i aria-hidden="true">⌄</i></summary>
+          <section class="operations-links top-operations"><button data-view-link="temperatures"><b>Temperature</b><span>Controllo giornaliero</span></button><button data-view-link="cleaning"><b>Pulizie</b><span>Checklist giornaliera</span></button><button data-view-link="receipts"><b>Corrispettivi</b><span>Foto e importi</span></button><button data-view-link="hours"><b>Ore lavorate</b><span>Personale e presenze</span></button></section>
+        </details>
         <header class="topbar">
           <div>
             <p class="eyebrow" id="today"></p>
