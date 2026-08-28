@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pastificio-v5-always-current';
+const CACHE_NAME = 'pastificio-v6-back-button';
 const FILES = [
   './', './index.html', './app.js', './styles.css', './tablet.css', './catalog.css',
   './orders.css', './calendar.css', './login.css', './quick.css', './enhancements.css',

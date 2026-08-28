@@ -347,6 +347,25 @@ button {
   color: #16805d;
 }
 
+.back-home-button {
+  background: transparent;
+  border: 0;
+  color: #2f67f6;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 7px;
+  padding: 3px 0;
+}
+
+.back-home-button:hover,
+.back-home-button:focus-visible {
+  color: #1f52cc;
+  outline: none;
+  text-decoration: underline;
+}
+
 @media (max-width: 1200px) {
   .quick-stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
