@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pastificio-v1';
+const CACHE_NAME = 'pastificio-v2-responsive';
 const FILES = [
   './', './index.html', './app.js', './styles.css', './tablet.css', './catalog.css',
   './orders.css', './calendar.css', './login.css', './quick.css', './enhancements.css',
