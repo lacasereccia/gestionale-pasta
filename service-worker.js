@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pastificio-v3-dropdowns';
+const CACHE_NAME = 'pastificio-v4-quick-home';
 const FILES = [
   './', './index.html', './app.js', './styles.css', './tablet.css', './catalog.css',
   './orders.css', './calendar.css', './login.css', './quick.css', './enhancements.css',

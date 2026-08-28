@@ -75,15 +75,12 @@
             <p>Qui trovi ciò che richiede attenzione oggi.</p>
             <button class="primary" data-action="new-order">+ Nuovo ordine</button>
           </div>
-          <div class="stats">
-            <article class="stat-card"><span class="stat-icon blue">↔</span><div><small>ORDINI URGENTI</small><strong id="ordersToPrepare">0</strong><p>da preparare per Senigallia</p></div></article>
-            <article class="stat-card"><span class="stat-icon green">▤</span><div><small>LOTTI ATTIVI</small><strong id="activeLots">0</strong><p>nelle due sedi</p></div></article>
-            <article class="stat-card"><span class="stat-icon orange">◷</span><div><small>IN SCADENZA</small><strong id="nearExpiry">0</strong><p>oggi o domani</p></div></article>
-            <article class="stat-card"><span class="stat-icon violet">✓</span><div><small>ULTIMO INVENTARIO</small><strong id="lastInventory">—</strong><p>Senigallia</p></div></article>
-          </div>
-          <div class="dashboard-grid">
-            <section class="panel"><div class="panel-heading"><div><h2>Ordini recenti</h2><p>Scambio merce tra le sedi</p></div><button class="text-button" data-view-link="orders">Vedi tutti</button></div><div id="recentOrders"></div></section>
-            <section class="panel attention"><div class="panel-heading"><div><h2>Da controllare</h2><p>Lotti vicini alla scadenza</p></div><button class="text-button" data-view-link="expiry">Gestisci</button></div><div id="attentionLots"></div></section>
+          <div class="stats quick-stats">
+            <button class="stat-card quick-stat" data-view-link="orders"><span class="stat-icon blue">↔</span><div><small>ORDINI</small><strong id="ordersToPrepare">0</strong><p>ordini previsti oggi</p></div><span class="quick-stat-arrow">›</span></button>
+            <button class="stat-card quick-stat" data-view-link="inventory"><span class="stat-icon green">▤</span><div><small>MAGAZZINO</small><strong id="activeLots">0</strong><p>prodotti disponibili</p></div><span class="quick-stat-arrow">›</span></button>
+            <button class="stat-card quick-stat" data-view-link="expiry"><span class="stat-icon orange">◷</span><div><small>IN SCADENZA</small><strong id="nearExpiry">0</strong><p>oggi o domani</p></div><span class="quick-stat-arrow">›</span></button>
+            <button class="stat-card quick-stat" data-view-link="stocktake"><span class="stat-icon violet">✓</span><div><small>ULTIMO INVENTARIO</small><strong id="lastInventory">—</strong><p>premi per controllare</p></div><span class="quick-stat-arrow">›</span></button>
+            <button class="stat-card quick-stat" data-action="new-lot"><span class="stat-icon production-icon">＋</span><div><small>PRODUZIONE</small><strong>Nuova</strong><p>registra ciò che produci</p></div><span class="quick-stat-arrow">›</span></button>
           </div>
         </section>
 

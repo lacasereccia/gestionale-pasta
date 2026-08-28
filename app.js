@@ -123,13 +123,11 @@ const urgencyFor = order => {
 function renderDashboard() {
   const lots = visibleLots();
   const needsAttention = lots.filter(lot => daysToExpiry(lot) <= 1 && lot.quantity > 0);
-  document.querySelector('#ordersToPrepare').textContent = state.orders.filter(order => order.status === 'Da preparare' && ['urgent', 'high'].includes(urgencyFor(order).style)).length;
+  document.querySelector('#ordersToPrepare').textContent = state.orders.filter(order => order.arrival === iso(today)).length;
   document.querySelector('#activeLots').textContent = lots.filter(lot => lot.quantity > 0).length;
   document.querySelector('#nearExpiry').textContent = needsAttention.length;
   document.querySelector('#expiryCount').textContent = needsAttention.length;
   document.querySelector('#lastInventory').textContent = state.lastInventory ? formatDate(state.lastInventory) : '—';
-  document.querySelector('#recentOrders').innerHTML = state.orders.slice(0, 4).map(order => { const summary = order.items.map(item => `${item.product} (${item.quantity} ${item.unit})`).join(', '); const urgency = urgencyFor(order); return `<div class="order-row"><span class="order-icon">↔</span><div><b>${order.id} · ${summary}</b><small>Serve il ${formatDate(order.arrival)} · Senigallia</small></div><span class="badge priority-${urgency.style}">${urgency.label}</span></div>`; }).join('') || '<p>Nessun ordine ancora inserito.</p>';
-  document.querySelector('#attentionLots').innerHTML = needsAttention.length ? needsAttention.map(lot => `<div class="lot-alert"><div><b>${lot.product}</b><small>${labelLocation(lot.location)} · Lotto ${formatDate(lot.production)}</small></div><span class="${expiryStatus(lot) === 'red' ? 'red-text' : 'orange-text'}">${daysToExpiry(lot) <= 0 ? 'Scade oggi' : 'Scade domani'}</span></div>`).join('') : '<p>Nessun lotto in scadenza.</p>';
 }
 
 function renderOrders() {
@@ -143,7 +141,7 @@ function renderOrders() {
     const date = iso(new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), number));
     const dot = orderDates.get(date); days.push(`<button class="calendar-day ${date === selectedOrderDay ? 'selected' : ''}" data-calendar-day="${date}">${number}${dot ? `<i class="calendar-dot ${dot === 'completed' ? 'completed' : ''}"></i>` : ''}</button>`);
   }
-  const ordersForDay = state.orders.slice().sort((a, b) => day(a.arrival) - day(b.arrival));
+  const ordersForDay = state.orders.filter(order => order.arrival === selectedOrderDay).slice().sort((a, b) => day(a.arrival) - day(b.arrival));
   const cards = ordersForDay.map(order => {
     const isMarotta = selectedLocation !== 'senigallia';
     const isSenigallia = selectedLocation === 'senigallia';
