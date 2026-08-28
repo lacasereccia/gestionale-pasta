@@ -1,0 +1,97 @@
+.hours-print-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.print-preview-card {
+  width: min(920px, calc(100% - 28px));
+}
+
+.print-preview-period {
+  margin: -8px 0 18px;
+  text-transform: capitalize;
+}
+
+.hours-print-preview-columns {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-height: min(62vh, 680px);
+  overflow-y: auto;
+}
+
+.hours-print-column {
+  border: 1px solid #dfe5ef;
+  border-radius: 7px;
+  padding: 13px;
+}
+
+.hours-print-column h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.hours-print-heading,
+.hours-print-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 54px;
+}
+
+.hours-print-heading {
+  color: #7a8497;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding-bottom: 8px;
+}
+
+.hours-print-heading span:last-child,
+.hours-print-row b {
+  text-align: right;
+}
+
+.hours-print-row {
+  border-top: 1px solid #e8ebf1;
+  font-size: 13px;
+  padding: 7px 0;
+}
+
+.hours-print-row span {
+  text-transform: capitalize;
+}
+
+@media print {
+  .sidebar,
+  .topbar,
+  .top-operations,
+  .hours-toolbar,
+  .hours-print-action,
+  .intro-row,
+  .save-hours,
+  .app-shell {
+    display: none !important;
+  }
+
+  #hoursPrintPreview,
+  #hoursPrintPreview .dialog-card {
+    display: block !important;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: 0;
+    width: 100%;
+  }
+
+  #hoursPrintPreview .dialog-heading,
+  #hoursPrintPreview .dialog-actions {
+    display: none;
+  }
+
+  .hours-print-preview-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
+    overflow: visible;
+  }
+}

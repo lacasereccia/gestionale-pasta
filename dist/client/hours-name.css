@@ -1,0 +1,2 @@
+.employee-name-input { background: transparent; border: 0; border-bottom: 1px solid #dfe5ef; border-radius: 0; color: #172033; font-size: 17px; font-weight: 700; margin-bottom: 14px; padding: 4px 0; width: 100%; }
+.employee-name-input:focus { border-bottom-color: #2f67f6; outline: none; }

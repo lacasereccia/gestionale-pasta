@@ -1,0 +1,142 @@
+.stock-declaration {
+  border: 1px solid #dfe6f2;
+  border-radius: 7px;
+  margin: 18px 0 0;
+  padding: 12px 12px 0;
+}
+
+.stock-declaration legend {
+  padding: 0 5px;
+  color: #4b566c;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.order-hint {
+  margin: -7px 0 16px;
+}
+
+.order-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.badge.priority-urgent {
+  background: #ffe6e6;
+  color: #ae2e2e;
+}
+
+.badge.priority-high {
+  background: #fff1d9;
+  color: #965800;
+}
+
+.badge.priority-normal {
+  background: #e5f6ed;
+  color: #14744f;
+}
+
+.badge.priority-neutral {
+  background: #edf0f5;
+  color: #687389;
+}
+
+.stock-report-panel {
+  margin-top: 18px;
+}
+
+.frozen-inventory-panel {
+  margin-top: 18px;
+}
+
+.inventory-summary-panel {
+  margin-top: 18px;
+}
+
+.inventory-summary {
+  display: grid;
+  gap: 0;
+}
+
+.inventory-summary-row {
+  align-items: center;
+  border-top: 1px solid #e8ebf1;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr auto auto;
+  padding: 11px 0;
+}
+
+.inventory-summary-row:first-child {
+  border-top: 0;
+}
+
+.inventory-summary-row b {
+  font-size: 13px;
+}
+
+.inventory-summary-row span {
+  color: #185f94;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.inventory-summary-row small {
+  color: #7b8497;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.expiry-adjusted {
+  background: #6d8fce;
+  display: block;
+  height: 2px;
+  margin-top: 5px;
+  width: 34px;
+}
+
+.stock-reports {
+  display: grid;
+  gap: 0;
+}
+
+.stock-report-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid #e8ebf1;
+  padding: 12px 0;
+}
+
+.stock-report-row:first-child {
+  border-top: 0;
+}
+
+.stock-report-row b,
+.stock-report-row small {
+  display: block;
+}
+
+.stock-report-row b {
+  font-size: 13px;
+}
+
+.stock-report-row strong {
+  color: #185f94;
+  font-size: 14px;
+}
+
+@media (max-width: 540px) {
+  .order-card-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .order-badges {
+    justify-content: flex-start;
+  }
+}

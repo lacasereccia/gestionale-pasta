@@ -1,0 +1,2 @@
+.quick-choice { display: flex; align-items: center; gap: 9px; cursor: pointer; font-size: 13px; }
+.quick-choice input { width: 17px; height: 17px; accent-color: #2f67f6; }

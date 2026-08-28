@@ -1,0 +1,98 @@
+.simple-form {
+  display: grid;
+  gap: 12px;
+  max-width: 620px;
+}
+.operations-links { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 18px; }
+.operations-links button { background: #fff; border: 1px solid #e0e6ef; border-radius: 7px; cursor: pointer; padding: 14px; text-align: left; }
+.operations-links b,.operations-links span { display: block; }.operations-links b { color: #27344b; font-size: 13px; }.operations-links span { color: #7b8497; font-size: 11px; margin-top: 2px; }
+
+.simple-form > #temperatureFields {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.checklist {
+  display: grid;
+  gap: 9px;
+}
+
+.checklist label {
+  align-items: center;
+  background: #f8faff;
+  border: 1px solid #e0e6ef;
+  border-radius: 6px;
+  color: #34415a;
+  display: flex;
+  font-size: 13px;
+  gap: 9px;
+  margin: 0;
+  padding: 10px 12px;
+}
+
+.checklist input {
+  accent-color: #2f67f6;
+  height: 17px;
+  margin: 0;
+  width: 17px;
+}
+
+.simple-history,
+.receipt-history {
+  display: grid;
+  gap: 0;
+  margin-top: 25px;
+  max-width: 760px;
+}
+
+.history-row,
+.receipt-row {
+  align-items: center;
+  border-top: 1px solid #e8ebf1;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.history-row b,
+.receipt-row b,
+.receipt-row small {
+  display: block;
+}
+
+.history-row b,
+.receipt-row b {
+  font-size: 13px;
+}
+
+.history-row span {
+  color: #687389;
+  font-size: 12px;
+  text-align: right;
+}
+
+.receipt-row img {
+  border: 1px solid #dfe5ef;
+  border-radius: 6px;
+  height: 58px;
+  object-fit: cover;
+  width: 80px;
+}
+
+@media (max-width: 540px) {
+  .operations-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .simple-form > #temperatureFields {
+    grid-template-columns: 1fr;
+  }
+
+  .history-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .history-row span {
+    text-align: left;
+  }
+}

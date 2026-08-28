@@ -1,0 +1,14 @@
+.category-heading {
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+.category-heading:hover { background: #f3f6fc; }
+.folder-icon { color: #5274c9; display: inline-block; width: 18px; }
+.category-contents { display: none; }
+.category-panel.open .category-contents { display: block; }
+.product-actions { display: flex; align-items: center; gap: 8px; }
+.delete-product { border: 0; background: transparent; color: #c33d3d; cursor: pointer; font: inherit; font-size: 11px; font-weight: 700; }
+.delete-product:hover { text-decoration: underline; }

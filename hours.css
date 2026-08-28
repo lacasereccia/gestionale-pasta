@@ -1,0 +1,98 @@
+.hours-toolbar {
+  align-items: end;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.employee-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.employees-area { align-items: center; display: flex; flex-wrap: wrap; gap: 7px; }
+.new-employee-name { padding: 7px 9px; width: 140px; }
+.icon-add-person,.edit-employee { border: 1px solid #dfe5ef; background: #f4f6fa; color: #4c5970; border-radius: 6px; cursor: pointer; font-weight: 700; height: 34px; min-width: 34px; }
+.edit-employee { border: 0; background: transparent; height: 30px; min-width: 22px; }
+
+.employee-tab {
+  background: #f4f6fa;
+  border: 1px solid #dfe5ef;
+  border-radius: 6px;
+  color: #4c5970;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 11px;
+}
+
+.employee-tab.active {
+  background: #e8efff;
+  border-color: #b9cdf9;
+  color: #2259c8;
+}
+
+.month-picker {
+  margin: 0;
+  min-width: 150px;
+}
+
+.hours-heading,
+.hours-row {
+  align-items: center;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 110px 30px;
+}
+
+.hours-heading {
+  color: #7a8497;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 0 0 8px;
+}
+
+.hours-heading span:last-child {
+  grid-column: 2 / -1;
+}
+
+.hours-row {
+  border-top: 1px solid #e8ebf1;
+  padding: 8px 0;
+}
+
+.hours-row > span {
+  color: #25324a;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.hours-row input {
+  padding: 7px 8px;
+  text-align: right;
+}
+
+.hours-row small {
+  color: #7b8497;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.hours-columns { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.hours-column { border: 1px solid #e0e6ef; border-radius: 7px; padding: 14px; }.hours-column h2 { margin-bottom: 14px; }
+.hours-row { grid-template-columns: 1fr 70px 58px; }.hours-row input { width: 100%; }.save-hours { background: #edf1f8; border: 0; border-radius: 5px; color: #40506b; cursor: pointer; font-size: 11px; font-weight: 700; padding: 7px 5px; }.save-hours:disabled { color: #9aa4b5; cursor: default; }
+
+@media (max-width: 540px) {
+  .hours-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .month-picker {
+    min-width: 0;
+  }
+}

@@ -1,0 +1,26 @@
+.order-list { display: grid; gap: 14px; }
+.order-card { border: 1px solid #e4e8f0; border-radius: 9px; overflow: hidden; }
+.order-card-heading { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 13px 15px; background: #fafbfe; }
+.order-card-heading b { font-size: 14px; }
+.order-card-heading small { display: block; margin-top: 2px; }
+.order-items { padding: 3px 15px; }
+.order-item { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid #edf0f5; }
+.order-item:first-child { border-top: 0; }
+.order-item label { display: flex; align-items: center; gap: 9px; margin: 0; color: #172033; font-size: 13px; }
+.order-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: #2f67f6; }
+.order-item.done b { color: #748096; text-decoration: line-through; }
+.order-footer { display: flex; align-items: end; justify-content: flex-end; gap: 9px; border-top: 1px solid #e4e8f0; padding: 11px 15px; background: #fcfdff; }
+.order-footer label { margin: 0; font-size: 10px; }
+.order-footer input { padding: 7px; }
+.order-item-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin-left: auto; }
+.scheduled-copy { color: #687389; font-size: 12px; font-weight: 700; margin-right: auto; }
+.order-quantities { align-items: baseline; display: flex; gap: 8px; margin-top: 3px; }
+.order-quantities strong { color: #172033; font-size: 16px; line-height: 1; }
+.order-quantities small { color: #7b8497; font-size: 10px; font-weight: 600; letter-spacing: 0; }
+@media (max-width: 540px) { .order-footer { align-items: stretch; flex-direction: column; } .order-footer .primary { width: 100%; } }
+.unavailable-button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #f2ca7a; color: #8a5500; background: linear-gradient(135deg,#fff9eb,#ffecbf); border-radius: 99px; padding: 7px 11px 7px 8px; font-size: 11px; font-weight: 800; cursor: pointer; box-shadow: 0 1px 2px #b9781618; transition: transform .15s ease, box-shadow .15s ease; }
+.unavailable-button span { display: grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; color: #fff; background: #d78908; font-size: 12px; line-height: 1; }
+.unavailable-button:hover { transform: translateY(-1px); box-shadow: 0 3px 8px #b9781630; }
+.standby-label { font-size: 11px; color: #9c6509; font-weight: 700; }
+.pending-order-items { border: 1px solid #f1d39d; background: #fff8e9; border-radius: 7px; padding: 10px; margin-bottom: 14px; font-size: 12px; color: #795212; }
+.pending-order-items b { display: block; margin-bottom: 3px; }
